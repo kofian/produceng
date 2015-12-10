@@ -1,0 +1,16 @@
+- contribution = @notification.contribution
+- company_name = CatarseSettings[:company_name]
+- contact_email = CatarseSettings[:email_contact]
+
+|Hello, <strong>#{contribution.user.display_name}</strong>!
+br
+br
+| We have not received the payment confirmation slip generated for the project #{link_to contribution.project.name, project_by_slug_url(permalink: contribution.project.permalink, ref: 'notificacao_cancelado')}.
+br
+br
+| If you still have interest in supporting the campaign, we can change the due date for you. Simply contact us responding to this message or by e-mail #{mail_to contact_email}
+br
+br
+|Thanks,
+br
+| #{company_name}

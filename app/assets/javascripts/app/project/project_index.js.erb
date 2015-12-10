@@ -1,0 +1,40 @@
+App.addChild('ProjectIndex', {
+
+  el: "body[data-action='index'][data-controller-name='projects'][data-request-path='/']",
+
+  map: undefined,
+
+  activate: function() {
+    this.initMap();
+  },
+
+  initMap: function() {
+
+    var farmers = JSON.parse("[" + $("#farmer_locations").text() + "]");
+    var infowindow = new google.maps.InfoWindow;
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 35.2009168, lng: -92.4667176},
+      zoom: 10,
+      scrollwheel: false
+    });
+
+    $.each(farmers, function(i,farmer){
+      var marker = new google.maps.Marker({
+        map: map,
+        position: { lat: farmer.lat, lng: farmer.lng},
+        icon: {
+          url: "<%= asset_url('gmap-pin.png') %>",
+          anchor: new google.maps.Point(10, 10),
+          scaledSize: new google.maps.Size(50, 57)
+        }
+      });
+
+      google.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent(farmer.name);
+        infowindow.open(map, marker);
+      });
+    });
+
+  }
+});

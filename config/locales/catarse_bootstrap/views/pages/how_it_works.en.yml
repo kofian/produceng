@@ -1,0 +1,29 @@
+---
+en:
+  pages:
+    how_it_works:
+      page-title: As the ProduceRun work?
+      title: Makes possible their collective campaign
+      submit: Start your campaign
+      learn-more: Learn more
+      header:
+        people: People have supported at least 01 campaign in ProduceRun
+        success: Projects have been successful here
+        money: were invested
+      start:
+        title: Start your campaign
+        content: Start the draft of your campaign now !
+        link: Learn more about the first steps of a campaign
+      people:
+        title: Mobilize stakeholders
+        content: At least 50 % of supporters will come from your own network of contacts.
+        link: Learn how many supporters you will need to mobilize
+      work:
+        title: Work hard at before , during and after the collection period
+        content: Study campaigns similar to yours.
+        link: Receive successful campaigns advice on Catarse
+      time:
+        title: All or nothing
+        content: You can choose a time between 1 and 60 days to achieve the purpose
+          of storage, the system we call All or Nothing .
+        link: Learn how our rate helps keep ProduceRun

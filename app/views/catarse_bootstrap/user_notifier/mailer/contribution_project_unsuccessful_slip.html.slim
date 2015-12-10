@@ -1,0 +1,34 @@
+- contribution = @notification.contribution
+- user = @notification.contribution.user
+- bank_account = user.bank_account
+
+|Hello, #{contribution.user.name}!
+br
+br
+| Unfortunately ProduceRun campaign #{link_to(contribution.project.name, project_by_slug_url(permalink: contribution.project.permalink))} you reservated did not reach the minimum target set by #{CatarseSettings[:company_name]}.
+br
+br
+| As its support was made through ticket, we will hold the refund directly to the account within 30 days.
+br
+br
+| Bank: #{bank_account.bank.to_s}
+br
+| Agency: #{bank_account.try(:agency)} - #{bank_account.try(:agency_digit)}
+br
+| Account: #{bank_account.try(:account)} - #{bank_account.try(:account_digit)}
+br
+| Account Name: #{bank_account.try(:owner_name)}
+br
+| Account & Routing Number: #{bank_account.try(:owner_document)}
+br
+br
+| Once the refund is made, you will receive an email confirmation of the operation.
+br
+br
+| If you got any questions, please contact us responding to this message or by e-mail #{mail_to CatarseSettings[:email_contact]} 
+| And inform your support identification key, which is:: #{contribution.payment_id}
+br
+br
+|Thanks,
+br
+| #{CatarseSettings[:company_name]}

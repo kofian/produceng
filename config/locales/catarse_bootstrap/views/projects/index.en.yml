@@ -1,0 +1,52 @@
+---
+en:
+  projects:
+    index_header:
+      subtitle: Finance campaigns collaboratively and become part of something bigger
+        .
+      title: Join Your Community In Buying Fresh Food Straight From The Farm
+    index:
+      back_a_project: "Buy Farm Fresh Now"
+      banner_title: Take paper designs !
+      see_all: View all
+      near_you: Near you
+      recents: recent
+      blog: Blog ProduceRun
+      expiring: In the final stretch
+      recommended: recommended
+      banner_subtitle: Music, comics , cinema, social impact , technology and more.
+      title: Buy Fresh Food Directly From Farm
+      search: Search for farmers near your area
+      box:
+        by: by
+        when: in
+      banner: Check out the search
+      explore: Explore campaigns
+      links:
+        channels: Discover the Canal Wings
+        recommended: Discover campaigns recommended
+        expiring: Discover campaigns down the stretch
+        recents: Discover recent campaigns
+        near: Discover campaigns near you
+      sidebar:
+        titles:
+          blog: blog
+          facebook: already likes our face ?
+          newsletter: Subscribe to our news
+          faq: "'re in doubt ?"
+          schedule: agenda
+        placeholders:
+          email: Enter your email address
+        buttons:
+          newsletter: send
+      sections:
+        near:
+          title: Near Me
+        recommended:
+          title: recommended
+        expiring:
+          title: In the final stretch
+        recents:
+          title: recent
+        channels:
+          title: Basic Canal

@@ -1,0 +1,6 @@
+<%if @valid_payment%>
+  window.location.href = '<%=project_contribution_path(@contribution.project, @contribution)%>';
+<%else%>
+  $('#catarse_braintree_form_error').html("<%=escape_javascript(render(:partial => '/catarse_bootstrap/devise/shared/alert.html'))%>");
+  $("#submit").show();
+<%end%>

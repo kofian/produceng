@@ -1,0 +1,16 @@
+---
+en:
+  devise:
+    passwords:
+      edit:
+        titles:
+          site: Set a new password
+          header: Set new password
+        form:
+          hint:
+            password_length: Minimum of 6 characters
+          labels:
+            password: new Password
+            password_confirmation: Password confirmation
+          inputs:
+            submit: Save and enter

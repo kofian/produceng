@@ -1,0 +1,22 @@
+---
+en:
+  explore:
+    index:
+      success_follow: Now you follow the category and will receive weekly a list of
+        new projects %{name}
+      success_unfollow: You failed to follow this category %{name}
+      follow: Follow
+      unfollow: Unfollow
+      following: Followers
+      categories: Categories
+      expiring: In the Final Stretch
+      in_funding: From To
+      near: Near Me
+      quick_explore: Quick Search
+      recent: recent
+      recommended: Recommended
+      subtitle: Explore the campaigns , find those that touch your heart and make it
+        happen!
+      successful: Successful
+      title: Find Amazing Campaigns
+    title: Explore the Campaigns

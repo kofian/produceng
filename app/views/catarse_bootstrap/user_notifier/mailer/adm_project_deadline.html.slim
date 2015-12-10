@@ -1,0 +1,25 @@
+- project = @notification.project
+- bank_account = project.user.bank_account
+|O campaign #{link_to(project.name, project_by_slug_url(project.permalink))} just hit your deadline.
+br
+br
+| Name of ProduceRun Campaign : #{project.name}
+br/
+| Valor arrecadado: #{project.display_pledged}
+br/
+| Date of expiring: #{project.display_expires_at}
+br/
+| Payment Details: #{project.user.moip_login}
+br/
+br/
+'Bank Data:'
+br/
+| Bank: #{bank_account.try(:name)}
+br/
+| Agency: #{bank_account.try(:agency)}- #{bank_account.try(:agency_digit)}
+br/
+| Account: #{bank_account.try(:account)} - #{bank_account.try(:account_digit)}
+br/
+| Bank Account Name: #{bank_account.try(:user_name)}
+br/
+| Tax Number: #{bank_account.try(:user_document)}

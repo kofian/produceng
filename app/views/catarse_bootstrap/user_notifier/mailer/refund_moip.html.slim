@@ -1,0 +1,27 @@
+- user = @notification.user
+|Hello #{user.name},
+br
+|You know when you think that note of money in the pocket of trousers which used not long ago? For this e-mail is for remembering this great feeling. = D
+br
+|In many cases, we had a simple solution to make the repayment. Now we are in a process to optimize this step. You are part of the first group to which we will make the refund directly into the bank account. :-)
+br
+|For that, we need you to fill out the form below with your bank details: # {link_to 'https://producerun.zendesk.com/account/dropboxes/20189915', 'https://producerun.zendesk.com/account/dropboxes/20189915'}
+br
+|O value the support that you've done and that will be refunded is: R$#{user.contributions.where(state:'requested_refund').sum(:value)}.
+br
+|Unfortunately, as their support was made more than 120 days, we will not refund the fee of the means of payment (card or ticket) and will discount time to make the deposit. This rate is different according to the used form of payment, and may vary between 2% and 6% of the support.
+br
+|0(s) number (s) identifying their support is:
+br
+- user.contributions.where(state:'requested_refund').each do |contribution|
+  |#{contribution.key}
+  br
+| Make the deposit in your account until November / 2014. That's because we have to do, one by one, almost 8000 operations. We prefer to define a longer term and deliver as promised than promise something for tomorrow and not keep.
+br
+|I hope you understand and we are here to take any questions. To do so, just reply to this message.
+br
+|Muito obrigado!
+br
+| William Pattison
+br
+|ProduceRun.com

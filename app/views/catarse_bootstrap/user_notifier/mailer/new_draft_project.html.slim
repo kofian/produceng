@@ -1,0 +1,53 @@
+- project = @notification.project
+| Design review request: #{project.name}
+br/
+| Catchphrase: #{project.headline}
+br/
+| Preparation time: #{distance_of_time_in_words(project.created_at, project.sent_to_analysis_at)}
+br/
+br/
+strong ABOUT THE CAMPAIGN
+br/
+br/
+| Link: #{link_to project_by_slug_url(project.permalink), project_by_slug_url(project.permalink)}
+br/
+| Category: #{link_to project.category, explore_url(anchor: "by_category/#{project.category_id}")}
+br/
+| Goal Value: #{number_to_currency project.goal}
+br/
+br/
+strong ABOUT THE FARMER
+br/
+br/
+| Name: #{project.user.full_name}
+br/
+| Username: #{project.user.name}
+br/
+| Email: #{project.user.email}
+br/
+| Telephone: #{project.user.phone_number}
+br/
+| Links: 
+br/
+- project.user.links.each do |link|
+  = link.link
+  br/
+= project.user.facebook_link
+br/
+= project.user.decorate.twitter_link
+br/
+= project.user.other_link
+br/
+| Supported campaigns: #{project.user.total_contributed_projects}
+br/
+| Funded campaigns: #{project.user.projects.with_state('successful').count}
+br/
+| Campaigns not funded: #{project.user.projects.with_state('failed').count}
+br/
+| Campaigns in Draft: #{project.user.projects.with_state('draft').count}
+br/
+| Campaigns in Analysis: #{project.user.projects.with_state('in_analysis').count} 
+br/
+| Campaigns approved: #{project.user.projects.with_state('approved').count}
+br/
+| Rejected campaigns: #{project.user.projects.with_state('rejected').count} 

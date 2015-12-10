@@ -1,0 +1,17 @@
+- contribution = @notification.contribution
+p Hello, <strong>#{contribution.user.display_name}</strong> !
+p You just backing this ProduceRun campaign #{link_to(contribution.project.name, project_by_slug_url(permalink: contribution.project.permalink))}.
+p 
+  | After payment, we take up to 3 business days to receive confirmation.
+  | When this confirmation occurs, will send another email with all the transaction details .
+p 
+  | To print the generated payment slip , just 
+  = link_to 'click here', contribution.decorate.display_slip_url
+  | .
+
+p The ticket expiration time is 2 business days . To change the due date , please contact us responding to this message or by e -mail #{mail_to CatarseSettings[:email_contact]}
+
+p 
+  | Thanks,
+  br/
+  | #{CatarseSettings[:company_name]}

@@ -1,0 +1,16 @@
+pt:
+  devise:
+    passwords:
+      new:
+        no_account_html: "No account ?"
+        titles:
+          site: 'Reset password '
+          header: 'Reset password '
+        links:
+          register: "Register"
+        form:
+          labels:
+            email: 'After entering your email, we will send a notification with instructions on how to reset your password'
+          inputs:
+            submit: 'redefine'
+

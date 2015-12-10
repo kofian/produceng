@@ -1,0 +1,14 @@
+= CatarseBraintree
+
+Install the database migrations
+
+    bundle exec rake catarse_braintree:install:migrations
+    bundle exec rake db:migrate
+
+
+Configuration.create!(name: "braintree_merchant_id", value: '')
+Configuration.create!(name: "braintree_public_key",  value: '')
+Configuration.create!(name: "braintree_private_key", value: '')
+Configuration.create!(name: "braintree_test",        value: '1')
+
+This project rocks and uses MIT-LICENSE.

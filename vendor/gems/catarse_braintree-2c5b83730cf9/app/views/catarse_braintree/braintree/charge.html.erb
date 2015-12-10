@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Braintree Payment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body{background-color: #e5e5e5;}
+      div.container { 
+        position: relative;
+        width: 940px;
+        margin-left: auto;
+        margin-right: auto;
+        zoom: 1;
+      }
+      .hero-unit {
+        margin-bottom: 15px;
+        padding: 81px 50px 66px 50px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        border: 1px solid #e5e5e5;
+        background-image: url(http://www.producerun.com/assets/hero-home.jpg);
+        margin-top: 4%;
+        color: white;
+      }
+      .card-terciary {
+        border-style: solid;
+        height: 653px;
+        border-width: 1px;
+        border-color: rgba(241, 244, 244, 0.49);
+        background-color: rgba(241, 244, 244, 0.49);
+      }
+      .card {
+        margin-bottom: -1px;
+        padding: 18px;
+        border: 1px solid #ddd;
+        background-color: rgb(242, 241, 241);
+      }
+      .text-field {
+        display: block;
+        height: 40px;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        -webkit-transition: all 500ms ease;
+        transition: all 500ms ease;
+        color: #3f4752;
+        font-size: 15px;
+      }      
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="catarse_braintree_form">
+            <div class="hero-unit">
+              <h2>Crowdfunding Payments with Braintree</h2>
+              <p>You've chosen to contribute using a credit card. You may use your Visa, Mastercard or Amex. Credit Card information is not stored on the crowdfunding website, and is safely stored on Braintree's servers.</p>
+            </div>
+            <div class="panel">
+              <% i18n_scope = 'projects.contributions.charge.payment_form' %>
+              <div class="panel-body">
+                <%= form_tag main_app.pay_braintree_path(params[:id]), id: 'checkout', autocomplete: false, style: "width: 100%;" do %>
+                <div class="card card-terciary">
+                  <% inputs = CatarseBraintree::Request::PaymentMethod::FORM_INPUTS %>
+                  <% test_vals = CatarseBraintree::Request::PaymentMethod::TEST_VALS %>
+                  <br/>
+                  <legend><label class="label label-primary label-sm">Personal Details</label></legend>
+                  <% inputs.each do |input| %>
+                    <p class="col-md-4">
+                      <%= label_tag(input, t(input, scope: i18n_scope), class: "control-label") %><br/>
+                      <%= text_field_tag(input, test_vals[input], class: "input input-lg text-field") %>
+                    </p>
+                  <% end %>
+                  <br/><br/>
+                  <legend><label class="label label-success label-sm">Card Details</label></legend>
+                  <p class="col-md-4">
+                    <label class="control-label"><%= t(:card_number, scope: i18n_scope) %></label><br/>
+                    <input data-braintree-name="number" value="4111111111111111" type="text" class="input input-lg text-field" />
+                  </p>
+                  <p class="col-md-4">
+                    <label class="control-label"><%= t(:cvv, scope: i18n_scope) %></label><br/>
+                    <input data-braintree-name="cvv" value="123" type="text" class="input input-lg text-field" />
+                  </p>
+                  <p class="col-md-4">
+                    <label><%= t(:expiration_date, scope: i18n_scope) %></label>
+                    <input data-braintree-name="expiration_date" value="10/20" type="text" class="input input-lg text-field" />
+                  </p>
+                  <br/><br/>
+                  <legend><label class="label label-warning label-sm">Address Details</label></legend>
+                  <% inputs = CatarseBraintree::Request::PaymentMethod::ADDRESS_INPUTS %>
+                  <% test_vals = CatarseBraintree::Request::PaymentMethod::TEST_ADDRESS_VALS %>
+                  <% inputs.each do |input| %>
+                    <p class="col-md-4">
+                      <label class="control-label"><%= t(input, scope: i18n_scope) %></label><br/>
+                      <input data-braintree-name="billing_address[<%= input.to_s %>]" value="<%= test_vals[input]%>" type="text" class="input input-lg text-field" />
+                    </p>
+                  <% end %>
+                </div>
+                <div>
+                  <input type="submit" id="submit" value="Confirm" class="btn btn-primary btn-lg col-md-12" />
+                </div>
+                <% end %>
+              </div>
+            </div>
+            </div>
+            <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+            <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+            <script>
+              braintree.setup("<%= @client_token %>", "custom", {id: "checkout"});
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

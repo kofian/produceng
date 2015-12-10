@@ -1,0 +1,56 @@
+= simple_form_for @user do |f| 
+    .w-container
+      .w-row
+        .w-col.w-col-10.w-col-push-1
+          .w-form.card.card-terciary
+              .w-row.u-marginbottom-20
+                .w-col.w-col-4
+                  .fontweight-semibold.fontsize-small.u-marginbottom-10 Newsletters:
+                .w-col.w-col-8
+                  .w-checkbox.w-clearfix
+                      = f.check_box :newsletter, class: 'w-checkbox-input'
+                      label.w-form-label.fontsize-base.fontweight-semibold for="checkbox"  Weekly ProduceRun Newsletter
+                      div Local ProduceRun campaigns and posts from our Blog&nbsp;
+              .w-row.u-marginbottom-20
+                .w-col.w-col-4
+                  .fontweight-semibold.fontsize-small.u-marginbottom-10 Campaigns that you supported:
+                .w-col.w-col-8
+                  .w-checkbox.w-clearfix
+                    = f.simple_fields_for :unsubscribes, @subscribed_to_posts do |u|
+                      = check_box_tag :subscribed, "1", @user.subscribed_to_posts?, class: 'w-checkbox-input'
+                      label.w-form-label.fontsize-base.fontweight-semibold  I want to receive updates of campaigns
+                    .u-marginbottom-20
+                      a.alt-link#toggle-notifications href="#"  Manage notifications of #{@user.contributed_projects.count} campaigns
+                    - if @unsubscribes
+                      ul.w-list-unstyled.u-radius.card.card-secondary.w-hidden#notifications-box
+                        = f.simple_fields_for :unsubscribes, @unsubscribes do |u|
+                          li
+                            .w-checkbox.w-clearfix
+                              = hidden_field_tag "unsubscribes[#{u.object.project.id}]", '' 
+                              = check_box_tag "user_unsubscribes_#{u.object.project_id}", "1", u.object.created_at.nil?, class: 'w-checkbox-input', name: "unsubscribes[#{u.object.project.id}]"
+                              label.w-form-label.fontsize-small= u.object.project.name
+              .w-row.u-marginbottom-20
+                .w-col.w-col-4
+                  .fontweight-semibold.fontsize-small.u-marginbottom-10 Categories you follow:
+                .w-col.w-col-8
+                  - @user.category_followers.all.each do |category_follower|
+                    .w-checkbox.w-clearfix
+                      = check_box_tag "user[category_followers_attributes][][category_id]", category_follower.category.id, true, class: 'w-checkbox-input'
+                      = hidden_field_tag "anchor", 'notifications' 
+                      label.w-form-label.fontsize-small= category_follower.category.name_pt
+              .w-row.u-marginbottom-20
+                .w-col.w-col-4
+                  .fontweight-semibold.fontsize-small.u-marginbottom-10 Campaign reminders:
+                .w-col.w-col-8
+                  - @user.projects_in_reminder.each do |project|
+                    .w-checkbox.w-clearfix
+                      = check_box_tag "user[reminders][][project_id]", project.id, true, class: 'w-checkbox-input'
+                      label.w-form-label.fontsize-small for="checkbox-14"= project.name
+      .u-margintop-30
+        .w-container
+          .w-row
+            .w-col.w-col-4.w-col-push-4
+              = f.submit 'Save',  class:'btn btn-large'
+ 
+
+

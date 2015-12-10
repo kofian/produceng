@@ -1,0 +1,50 @@
+- user = @notification.user
+
+| Oi #{user.name},
+br/
+br/
+| In order to further simplify the process, 
+'  from 10/11 #{link_to 'there will be no more credits on ProduceRun', 'support.producerun.com', target: '__blank'}. That's why we came here to talk to you .
+br/
+br/
+| So we check , you've got to use part of their claims , but still has #{user.display_credits} here .
+br/
+br/
+|To support a project, the process is the same:
+br/
+br/
+| 1 - Choose the project you want to support;
+br/
+| 2 - Clicking Support this project;
+br/
+| 3 - Put the value you want to support and select the field confirming that you want to use your credits.
+br/
+| 4 - Click the Review button and perform payment at the bottom of the screen;
+br/
+| 5 - Ready ! Your support will be confirmed
+br/
+br/
+| <strong>Campaign Tips</strong>
+br/
+br/
+- user.recommended_projects.limit(3).each do |project|
+  |#{link_to(project.name, project_by_slug_url(permalink: project.permalink, ref: 'credits_warning_more_group'))}
+  br/
+  |#{project.headline}
+  br/
+  br/
+br/
+br/
+| If you do not use the credits until 10/11 we will contact you to make repayment.
+br/
+br/
+| If you have any questions, just let us know by replying to this email or by info@producerun.com 
+br/
+br/
+| Thanks
+br/
+| ProduceRun
+
+
+
+

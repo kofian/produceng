@@ -1,0 +1,25 @@
+- user = @notification.user
+|Hello #{user.name},
+br
+|You know when you think that note of money in the pocket of trousers which used not long ago ? For this e- mail is for remembering this great feeling.
+br
+|In many cases , we had a simple solution to make the repayment . Now we are in a process to optimize this step. How did you do your support via Paypal, the simplest way is to do a direct- transfer to your Paypal account , registered in our system via e- mail#{user.contributions.last.payer_email}.
+br
+|The amount of support that you did and you will be refunded is: $#{user.contributions.where(state:'requested_refund').sum(:value)}.
+br
+|Unfortunately, as their support was made more than 120 days , we will not refund the fee of the means of payment ( card or ticket ) and will discount time to make the deposit . This rate is different according to the used form of payment , and may vary between 2 % and 6 % of the support.
+br
+|The (s ) number (s) identifying their support is:
+br
+- user.contributions.where(state:'requested_refund').each do |contribution|
+  |#{contribution.key}
+  br
+|We will make the deposit in your account until the day 30/09/2014 . 
+br
+|I hope you understand and we are here to take any questions . To do so , just reply to this message .
+br
+|Thank you!
+br
+|William Pattison
+br
+|ProduceRun

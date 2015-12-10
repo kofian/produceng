@@ -1,0 +1,25 @@
+- user = @notification.user
+|Hi #{user.name}, how are you doing?
+br
+|Isn't it a great surprise when you check the pocket of a very old pair of trousers and find some cash in it?
+br
+|For most of the cases, we didn't have a solution to do your refund. We now have a process to solve this problem. You are in one of the first groups that will receive your refund directly in your bank account. :-)
+br
+|To do so, we need that you fulfill the following form with your bank account information: #{link_to 'http://bit.ly/reembolsoCatarse', 'http://bit.ly/reembolsoCatarse'}
+br
+|The contribution amount that has to be refunded is: R$#{user.contributions.where(state:'requested_refund').sum(:value)}.
+br
+|Unfortunately, as your contribution was made more than 120 days ago, we won't be able to refund all the taxes of your payment method (credit card or bank slip) and we will subtract this value of the total amount before transfer it. The value of this tax may vary accordingly with the payment method.
+br
+|The identification of your contribution is:
+br
+- user.contributions.where(state:'requested_refund').each do |contribution|
+  |#{contribution.key}
+  br
+|The time to finish all the process may take some time. Please be patient.
+br
+|If you have any question, please e-mail us.
+br
+|Best regard!
+br
+|Finance department team

@@ -1,0 +1,40 @@
+p Here are all the payment details:
+p
+  | Supporter name: # {(contribution.payer_name || contribution.user.display_name)}
+  br /
+  | Supporter Tax: # {(contribution.payer_document || contribution.user.cpf)}
+  br /
+  | Date of confirmation of support: # {l} contribution.confirmed_at
+  br /
+  | Payment Option: # {contribution.payment_choice || contribution.payment_method}
+  br /
+  | Contribution value: # {number_to_currency contribution.value}
+  - If contribution.installments> 1
+    br /
+    | Number of parcels: # {} contribution.installments
+    br /
+    | Share value: # {number_to_currency (contribution.installment_value, precision: 2)}
+  br /
+  -if contribution.reward.present?
+    | Select Reward: # {} contribution.reward.description
+    br /
+    | Delivery Estimates: # {} contribution.reward.display_deliver_estimate
+    br /
+  | Support ID: # {} contribution.payment_id
+  br /
+  | Name / Company Name of director: # {contribution.project.user.full_name.presence || contribution.project.user.name.presence}
+  br /
+  | CPF / CNPJ of the director: # {} contribution.project.user.cpf
+
+p
+  'Importantly, ProduceRun is only mediator of this process,
+  'So if you have any questions regarding the ProduceRun campaign selected from
+  'The Farmer, contact them via email mail_to contribution.project.user.email # {}.
+  'Ah! Remember to keep this email as it contains important information
+  'Regarding their purchase from your ProduceRun campaign.
+p If you got any questions, please contact us responding to this message or by e-mail # {mail_to CatarseSettings [: email_contact]}
+
+p
+  | Thank you,
+  br /
+  | # {CatarseSettings [: company_name]}

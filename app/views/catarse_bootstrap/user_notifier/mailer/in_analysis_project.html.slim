@@ -1,0 +1,44 @@
+- user = @notification.user
+- project = @notification.project
+
+- project_link = edit_project_url(project)
+- company_name = CatarseSettings[:company_name]
+
+|Hello, #{user.name}!
+br
+br
+| Thank you very much for sending us your ProduceRun Campaign #{link_to project.name, project_link, target: '__blank'}
+br/
+br/
+| From now , our campaign team will <strong>evaluate all content</strong> you put on the page and ( in a maximum of 4 days)
+'  you will receive an email stating that it has been <strong>Approved , Denied</strong> or whether to continue <strong>in Analysis</strong> for a while.
+br
+br
+strong What does that mean?
+br/
+br/
+strong Campaign was Refused
+br/
+| Your User Profile #{company_name} needs to filled out or the ProduceRun Campaign doesn't fit out requirement and can not be published on the platform due to .
+br/
+br/
+strong Page continues in Analysis
+br/
+| O ProduceRun campaign has the profile #{company_name} and it suits our requirements , except that the campaign is not yet ready to be published on the platform. Receive our comments , tips and suggestions. Finalize the issues in the ProduceRun Campaign and let our support agent when you want it to do a reassessment .
+br/
+br/
+strong Page has been approved 
+br/
+| Let's move on , when you start the campaign is up to you ! Choose the best date and publish the page of your campaign on the platform.
+br/
+br/
+strong
+  | To accompany the change of status of the campaign #{link_to project.name, project_link, target: '__blank'} please make changes and publish.
+br/
+br/
+| Remember that you can ask questions us at any time responding directly to this message or by e- mail #{mail_to CatarseSettings[:email_projects]} 
+br/
+br/
+|Thanks,
+br/
+= company_name

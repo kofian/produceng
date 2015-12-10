@@ -1,0 +1,88 @@
+- content_for :title, t('.page-title', name: @project.name)
+
+= render 'shared/header'
+
+= render 'projects/project_header'
+
+#project_review.section[data-thank-you-path=project_contribution_path(project_id: @project.id, id: @contribution.id)]
+  .w-container
+    .w-row
+      .w-col.w-col-8
+        = simple_form_for [@project, @contribution], html: { data: { update_info_path: project_contribution_path(project_id: @contribution.project.id, id: @contribution.id, format: :json) }, id: 'review_form', method: 'put' } do |form|
+          /= @project.inspect
+          /= @contribution.inspect
+          = form.input :id, as: :hidden, label: false
+          = form.input :project_id, as: :hidden, label: false
+          .u-marginbottom-30.u-text-center-small-only
+
+            .fontsize-large.fontweight-semibold.lineheight-tight.text-success-small-only Complete and review the data for payment
+            .fontsize-small
+              /.payment-lock.payment-icon-lock
+              /'This payment is secure
+
+          #error-message.card.card-error.u-radius.zindex-10.u-marginbottom-30.w-hidden
+            .fontsize-smaller.fontweight-bold.u-marginbottom-10= t('.review_errors_title')
+            .fontsize-smaller = t('.review_errors')
+          .w-hidden-main.w-hidden-medium.w-clearfix
+            = render 'selected_reward'
+          .w-row
+            .w-col-10
+          .w-form.u-marginbottom-30
+            - if parent.using_pagarme?
+              .w-row
+                = form.input :payer_name, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {required: true, class: 'w-input text-field required'}, validation_text: true, required: true
+              .w-row
+                / TODO: This is a dummy form data
+                = form.input :payer_company_name, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field'}
+              .w-row
+                = form.input :address_line_1, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field'}
+              .w-row
+                = form.input :address_line_2, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field'}
+              .w-row
+                = form.input :address_city, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12 w-sub-col'}, input_html: {required: true, class: 'w-input text-field required'}, validation_text: true, required: true
+                = form.input :address_state, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12'}, input_html: {required: true, class: 'w-input text-field required'}, validation_text: true, required: true
+              .w-row
+                = form.input :address_zip_code, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12 w-sub-col'}, input_html: {required: true, class: 'w-input text-field required'}, validation_text: true, required: true
+                = form.input :address_phone_number, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12'}, input_html: {required: true, class: 'w-input text-field required'}, validation_text: true, required: true
+
+            - else
+              .w-row
+                = form.input :payer_name, as: :string, wrapper_html: {class: 'w-col w-col-6 w-sub-col'}, input_html: {required: true}, validation_text: true, required: true
+                = form.input :payer_email, as: :email, wrapper_html: {class: 'w-col w-col-6'}, input_html: {required: true}, validation_text: true, required: true
+            .w-row
+              .w-col.w-col-12
+                = form.input_field :anonymous, boolean_style: :inline, class: 'checkbox-fix'
+                label.w-form-label.fontsize-smallest[for="contribution_anonymous"] = t('.anonymous_contribution')
+            .w-row
+              .w-col.w-col-12
+                #anonymous-confirmation.card.card-message.u-radius.zindex-10.fontsize-smallest.w-hidden
+                  .fontweight-bold = t('.anonymous_confirmation_title')
+                  = t('.anonymous_confirmation')
+
+          .w-row.u-marginbottom-40
+            .w-col.w-col-push-3.w-col-6
+              a#next-step.btn.btn-large href="#payment-engines" Next step
+
+        #payment-engines.w-hidden
+          .fontsize-base.fontweight-bold.fontcolor-primary Choose Payment Method
+          .fontcolor-secondary.fontweight-semibold.fontsize-smallest.u-marginbottom-20
+            span.fa.fa-lock
+            |&nbsp;&nbsp;
+            = t('.choose_payment_subtitle')
+
+          #payment-methods.nav-light.u-marginbottom-30[class=(avaiable_payment_engines.size == 1 ? '' : '')]
+            - avaiable_payment_engines.each do |engine|
+              .nav-tab.nav-tab-light[id=engine[:name] data-target="##{engine[:name]}_payment"]
+                = t("projects.contributions.review.#{engine[:name]}")
+          .tab_content_container.tab-container
+            - avaiable_payment_engines.each do |engine|
+              div[id="#{engine[:name]}_payment" class="payments_type tab-content hide" data-path=catarse_braintree.review_braintree_path]
+                .results
+                  .tab-loader.loader.u-text-center.w-col.w-col-12.u-marginbottom-30 = image_tag "catarse_bootstrap/loader.svg"
+      .w-col.w-col-4
+        .w-hidden-small.w-hidden-tiny
+          = render 'selected_reward'
+        .w-hidden-small.w-hidden-tiny
+          = render 'faq_box'
+
+= render 'shared/footer'

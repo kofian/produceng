@@ -1,0 +1,15 @@
+- user = @notification.user
+
+| Hi #{user.display_name},
+br/
+br/
+| We would like to let you know that we updated our #{link_to 'terms of use', 'http://www.catarse.me/pt/terms-of-use', target: '__blank'}
+'  and #{link_to 'privacy policy', 'http://www.catarse.me/pt/privacy-policy', target: '__blank' } in Catarse.
+br/
+br/
+| If you have any question please let us know replying this e-mail or send an e-mail to #{mail_to CatarseSettings[:email_contact]}
+br/
+br/
+| Best regards,
+br/
+| Catarse

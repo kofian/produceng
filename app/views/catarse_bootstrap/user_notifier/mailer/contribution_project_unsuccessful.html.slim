@@ -1,0 +1,27 @@
+- contribution = @notification.contribution
+
+|Hello, #{contribution.user.name}!
+br
+br
+| Unfortunately campaign #{link_to(contribution.project.name, project_by_slug_url(permalink: contribution.project.permalink))}
+| You reserved did not reach the minimum set target for #{CatarseSettings[:company_name]} to run this to town.
+br
+br
+| As the payment was made by credit card, following the procedures that must be done so that we can reverse the value of your support
+br
+br
+| As its reservation was made through ticket, you need to fill your
+'  #{link_to 'Bank Details', settings_user_url(contribution.user)} make to the transaction within 30 days.
+br
+br
+| Once the refund is made, you will receive an email confirmation of the operation.
+br/
+br/
+| If you got any questions, please contact us responding to this message or by e-mail #{mail_to CatarseSettings[:email_contact]} .To speed up service, please enter the identification key for your support, which is:
+br/
+| #{contribution.payment_id}
+br
+br
+|Thanks for your support,
+br
+| #{CatarseSettings[:company_name]}

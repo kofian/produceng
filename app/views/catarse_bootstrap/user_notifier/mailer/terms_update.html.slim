@@ -1,0 +1,35 @@
+- user = @notification.user
+
+| Hello #{user.display_name},
+br/
+br/
+| This email is to notify the recent update on our #{link_to 'terms of use', 'https://www.producerun.com/en/terms-of-use', target: '__blank'} 
+'  e #{link_to 'privacy policy', 'http://www.producerun.com/en/privacy-policy', target: '__blank' } the ProduceRun, Inc . The changes are related to new means of payment that ProduceRun is using and begin to apply to campaign that are published online.
+br/
+br/
+| Summarizing the changes:
+br/
+br/
+| - unfunded projects do not generate more credits ( regardless of when they entered;
+br/
+| - there will be the possibility of using credits in any project;
+br/
+| - If the project is not funded , reimbursement of the payment made via credit card within 5 days straight in the making ;
+br/
+| - If the project is not funded , reimbursement of the payment made via slip within 10 business days straight in the given bank account at the time of payment;
+br/
+| - Option to save the credit card data on Catarse profile.
+br/
+br/
+| To read all the details see our #{link_to 'Support', 'http://support.producerun.com', target: '__blank'} or 
+'  read #{link_to 'terms of use', 'http://www.producerun.com/terms-of-use', target: '__blank'} 
+'  e #{link_to 'privacy policy', 'http://www.producerun.com/privacy-policy', taget: '__blank'} updated.
+br/
+br/
+| If you got any questions please contact us by replying to this email or by #{mail_to CatarseSettings[:email_contact]}
+br/
+br/
+| Thanks,
+br/
+| ProduceRun
+

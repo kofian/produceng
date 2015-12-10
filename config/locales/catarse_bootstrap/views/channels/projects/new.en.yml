@@ -1,0 +1,45 @@
+---
+en:
+  channels:
+    projects:
+      new:
+        title: Submit your campaign to %{channel} !
+        subtitle: After completing the form below, you will receive a campaign page
+          in draft.
+        important: "<strong>Importante : </strong> The %{channel} selects campaigns
+          according to their own selection criteria , which means that your project
+          may be refused by the team of curators ."
+        permalink: Url design
+        permalink_hint: URL is the address of your campaign , let it simple.
+        permalink_over: "%{channel}.producerun.com/"
+        name: Project Name
+        name_hint: The more direct the better.
+        about: History of your campaign and how the money will be used
+        about_hint: Talk about your inspiration for the campaign , its history and
+          what will be accomplished .
+        headline: Catchphrase
+        headline_hint: Create a brief description of the campaign , with a maximum
+          of 140 characters.
+        category_id: What is the category of your campaign ?
+        category_id_hint: Before sending , explore and inspire other campaigns in the
+          same <a href='%{href}' target='_blank'>category</a> .
+        goal: How much you want to raise ?
+        goal_hint: Much of the support will come from people close to you so think
+          on their ability to mobilize at least 50 % of the value within your network
+          of contacts.
+        online_days: How long in days to reach the minimum ?
+        online_days_hint: The deadline to leave the campaign in the air is 60 days
+          , with an average stay in the air for 40 days.
+        video_url: video
+        video_url_hint: The video is the centerpiece of the campaign, but you can send
+          it later.
+        more_links: We want to know more
+        more_links_hint: We want to know more about you and your campaign.
+        first_contributions: List of the first supporters
+        first_contributions_hint: For your campaign to succeed , it is essential to
+          bring your closer contact network.
+        how_know: How did you find the channel?
+        how_know_hint: Tell us how you met the channel and what you expect from us.
+        accept_terms: I have read and I agree with %{link} .
+        terms: terms of use
+        submit: Save Draft

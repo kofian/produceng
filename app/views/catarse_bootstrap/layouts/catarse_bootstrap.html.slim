@@ -1,0 +1,82 @@
+doctype 5
+html
+  head
+    title= t('site.meta_title', title: (@title || yield(:title)), company_name: CatarseSettings[:company_name])
+    /! Start of producerun Zendesk Widget script
+    javascript:
+      /**/
+      window.zEmbed || function (e, t) {
+        var n, o, d, i, s, a = [], r = document.createElement("iframe");
+        window.zEmbed = function () {
+          a.push(arguments)
+        }, window.zE = window.zE || window.zEmbed, r.src = "javascript:false", r.title = "", r.role = "presentation", (r.frameElement || r).style.cssText = "display: none", d = document.getElementsByTagName("script"), d = d[d.length - 1], d.parentNode.insertBefore(r, d), i = r.contentWindow, s = i.document;
+        try {
+          o = s
+        } catch (c) {
+          n = document.domain, r.src = 'javascript:var d=document.open();d.domain="' + n + '";void(0);', o = s
+        }
+        o.open()._l = function () {
+          var o = this.createElement("script");
+          n && (this.domain = n), o.id = "js-iframe-async", o.src = e, this.t = +new Date, this.zendeskHost = t, this.zEQueue = a, this.body.appendChild(o)
+        }, o.write('<body onload="document._l();">'), o.close()
+      }("https://assets.zendesk.com/embeddable_framework/main.js", "producerun.zendesk.com");
+      /**/
+    /! End of producerun Zendesk Widget script
+    = stylesheet_link_tag 'catarse_bootstrap/catarse'
+    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
+    = javascript_include_tag "//www.google.com/jsapi", "chartkick"
+    = content_for(:stylesheets)
+    = favicon_link_tag 'favicon.ico'
+    = csrf_meta_tag
+    meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"
+
+    - if content_for? :meta_tags
+      /project specific meta tags
+      = yield :meta_tags
+    - else
+      /meta tags for the whole site
+      meta name="description" content=t('site.description')
+      meta name="keywords" content=t('site.keywords')
+      meta property="og:title" content=t('site.title')
+      meta property="og:type" content=:cause
+      meta property="og:url" content=root_url
+      meta property="og:image" content=CatarseSettings[:company_logo]
+      meta property="og:site_name" content=CatarseSettings[:company_name]
+      meta property="fb:app_id" content=CatarseSettings[:facebook_app_id]
+      meta property="og:description" content=(t('projects.index_header.title') + '. ' +  t('projects.index_header.subtitle'))
+    = javascript_include_tag "//maps.googleapis.com/maps/api/js?libraries=places,visualization", :defer => true, :async => true
+
+  body#catarse_bootstrap[data-controller-name=controller_name data-action=action_name data-request-path=request.path data-user="#{current_user.try(:to_analytics_json)}" data-mobile=browser.mobile?.to_s]
+    = render 'layouts/global_alert'
+    = render 'layouts/new_zendesk'
+    = render_facebook_sdk
+    = render 'layouts/flash' if notice.present?
+    = render 'layouts/webfont'
+
+    = yield
+
+    - if current_page?('/')
+      div#farmer_locations.hidden
+        - @farmers.each_with_index do |farmer, index|
+          - if index == @farmers.size - 1
+            '{
+              "name": "#{farmer.name}",
+              "lat": #{farmer.latitude},
+              "lng": #{farmer.longitude}
+            '}
+          -else
+            '{
+              "name": "#{farmer.name}",
+              "lat": #{farmer.latitude},
+              "lng": #{farmer.longitude}
+            '},
+
+    = javascript_include_tag :application
+
+    - if Rails.env.production?
+      = render 'layouts/crazzy_egg'
+      = render 'layouts/hot_jar'
+      = render_google_analytics_script
+      = render_mixpanel_script
+      = javascript_include_tag "//cdn.optimizely.com/js/2188501553.js"
+      = render 'layouts/intercom'

@@ -1,0 +1,9 @@
+---
+en:
+  channels:
+    profiles:
+      show:
+        accessibility:
+          link_to_twitter: Link to twitter channel
+          link_to_facebook: Link to facebook channel
+          link_to_website: Link to external channel site

@@ -1,0 +1,44 @@
+- user = @notification.user
+- project = @notification.project
+
+- project_link = edit_project_url(project)
+- company_name = CatarseSettings[:company_name]
+
+|Hello, #{user.name}!
+br/
+br/
+| Thank you for starting the application process of a campaign #{company_name}! 
+br/
+| Know that received your application ! 
+br/
+br/
+| You just created the project draft page #{link_to project.name, project_link} on #{company_name}. 
+br/
+br/
+strong It's time to work on the presentation of your project!
+br/
+| This campaign is on #{company_name} as a draft, that is, it is not public.
+' You can send the link up to other people view the page and help you with reviews and suggestions.
+br/
+br/
+strong No one can buy from your campaign until it is approved and the campaign it is published online.
+br/
+| To proceed to these steps you must complete the entire draft page of your campaign and send it to our analysis. When you consider that your campaign is ready , simply click the button “SEND”.
+br/
+br/
+= image_tag 'https://s3.amazonaws.com/cdn.catarse/notifications_assets/btn-send-to-analysis.gif', width: 600
+br/
+br/
+| After that, the team #{company_name} will assess whether the campaign is in line with the platform policy, and send you an answer ( to this e- mail even ) within 4 days !
+br/
+br/
+| If you got any questions, please reply to this message or send email to #{mail_to CatarseSettings[:email_projects]}
+br/
+br/
+| And by the way , please <strong>do not forget to include in your contact list emails:</strong> 
+| #{mail_to CatarseSettings[:email_projects]} e #{mail_to CatarseSettings[:email_contact]} to prevent our messages fall into your spam due to your email filters.
+br/
+br/
+| Thanks,
+br/
+= company_name

@@ -1,0 +1,29 @@
+- contribution = @notification.contribution
+
+| Hi Community!
+br/
+br/
+| This credit was made to a not completely funded campaign, using a credit card. Please, contact the campaign organizer directly to request your refund.
+br/
+br/
+| User #{contribution.user.display_name}
+br/
+| User e-mail: #{contribution.user.email}
+br/
+| Payer e-mail: #{contribution.payer_email}
+br/
+| Payer name: #{contribution.payer_name}
+br/
+| Campaign: #{contribution.project.name}
+br/
+| Contribution key: #{contribution.key}
+br/
+| Payment ID: #{contribution.payment_id}
+br/
+| Amount: #{contribution.decorate.display_value}
+br/
+| Payment method: #{contribution.payment_method}
+br/
+| Payment choice: #{contribution.payment_choice}
+br/
+| Date: #{contribution.created_at}

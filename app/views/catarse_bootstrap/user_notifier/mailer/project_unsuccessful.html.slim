@@ -1,0 +1,43 @@
+- project = @notification.project
+
+- project_link = edit_project_url(project)
+- company_name = CatarseSettings[:company_name]
+
+|Hi, #{project.user.display_name},
+br/
+br/
+| Unfortunately the campaign #{link_to project.name, project_link } did not reach the financing target in #{company_name}.
+br/
+br/
+| Rest assured, all his supporters have received an email with instructions on #{link_to 'reimbursement process', 'http://support.producerun.com', target: '__blank' }.
+br/
+br/
+strong Want to help improve ProduceRun?
+br/
+| Your campaign may not have achieved the goal but surely you learned something and can benefit greatly from this experience if you want ! Share this learning with us !
+br/
+br/
+strong 1. What are the two worst problems you faced during the campaign?
+br/
+br/
+| It can be something directly related #{company_name}, reflecting its self- criticism, or even external reasons that have hampered its path in crowdfunding.
+br/
+br/
+strong 2. What did you missed in the platform #{company_name}?
+br/
+br/
+| How can we improve the platform ? As I could have helped you the most?
+br/
+br/
+| We are always looking to improve the usability of the site and our service. So we need to be attentive to what you have to say about us.
+br/
+br/
+| We hope you find this valuable experience and know that we are on hand should you need our help!
+br/
+br/
+| We hope you try again soon.
+br/
+br/
+| Thanks,
+br/
+| The #{company_name} team.

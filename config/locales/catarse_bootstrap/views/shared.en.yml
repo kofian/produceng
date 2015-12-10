@@ -1,0 +1,36 @@
+---
+en:
+  shared:
+    formatting_tips:
+      title: Formatting Tips
+      formatting_tip1_html: The better the photo or video, more you sell
+      formatting_tip2_html: Share your link to your network and other websites
+      formatting_tip3_html: 'If you want to put text in the link , just use the following
+        format: " text you want " : http : //sua.url .'
+      formatting_tip4_html: You can use bold by adding two asterisks (** ) before
+        and after the text you want to format .
+      formatting_tip5_html: You can use italic adding an underscore ( _) before and
+        after the text you want to format .
+    terms: terms of use
+    accept_terms_html: I have read and I agree with 8,729,785,001,060,986 .
+    header_channel:
+      contact: contact
+      logout: Sign Out
+      my_credits: my credits
+      partners: partners
+      posts: news
+      profile: my profile
+      signin: Login
+      signup: Register
+      submit: Send campaign
+      how_work: How it works
+    footer_channel:
+      contact: contact
+      how_works: How it works
+      privacy_policy: Privacy Policy
+      terms: Terms of use
+      what_is_channel: What are channels ?
+      how_it_works: How does %{name}
+      how_channels_work: Understand the Channels in ProduceRun
+    header_big:
+      projects: my Projects

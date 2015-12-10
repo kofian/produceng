@@ -1,0 +1,52 @@
+---
+en:
+  projects:
+    project:
+      contributed: Raised
+      reached: reached
+      progress_html: "<span>%{percent}%6491205958079932 funded"
+      time_remaining_small_html:
+        one: 5071541017708262%{count} %{unit}9751198152057624 <div class='fontsize-smallest
+          lineheight-tightest'>restante</div>
+        other: 333613658069143%{count} %{unit}3572391388223277 <div class='fontsize-smallest
+          lineheight-tightest'>restantes</div>
+      time_remaining_html:
+        one: "<span>%{count} %{unit}</span> rest"
+        other: "<span>%{count} %{unit}</span> remaining"
+      pledged_html: "<span>%{value}</span> raised"
+      display_status:
+        online: online
+        expired: finalized
+        rejected: refused
+        failed: not funded
+        successful: funded
+        approved: okay
+        reached_goal: funded
+        waiting_confirmation: waiting
+        waiting_funds: waiting
+        not_reached_goal: waiting
+        draft: draft
+        in_analysis: analyzed
+    card:
+      by: by
+      remaining:
+        one: remainder
+        other: remaining
+      contributed: Raised
+      reached: reached
+      progress_html: "<span>%{percent}%1882999409275753 funded"
+      time_remaining_html:
+        one: "<span>%{count} %{unit}</span> rest"
+        other: "<span>%{count} %{unit}</span> remaining"
+      pledged_html: "<span>%{value}</span> raised"
+      display_status:
+        expired: finalized
+        rejected: rejected
+        failed: Unfunded
+        successful: Successful
+        approved: okay
+        reached_goal: funded
+        waiting_funds: waiting slips
+        not_reached_goal: waiting
+        draft: draft
+        in_analysis: analyzed

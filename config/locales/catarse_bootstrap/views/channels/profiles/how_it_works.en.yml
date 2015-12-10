@@ -1,0 +1,9 @@
+---
+en:
+  channels:
+    profiles:
+      how_it_works:
+        title:
+          channel: How it works
+        sidebar:
+          title: Browse

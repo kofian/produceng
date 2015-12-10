@@ -1,0 +1,105 @@
+.project-basics
+  .u-text-center
+    .w-container
+      .w-row
+        .w-col.w-col-2
+        .w-col.w-col-8
+          .fontweight-semibold.fontsize-large= t('.project_start')
+          p.fontsize-base= t('.project_start_subtitle')
+        .w-col.w-col-2
+= simple_form_for @project, html: { class: 'project-form w-form' } do |form|
+  .section
+    .w-container
+      .w-row
+        .w-col.w-col-8
+          .w-form
+              = @project.display_errors(:basics)
+              - if (current_user && current_user.admin?)
+                = form.input :user_id, as: :string,
+                  wrapper: :two_columns,
+                  wrapper_class: 'w-row u-marginbottom-20 card card-terciary',
+                  label_wrapper_html: { class: 'w-col w-col-4 w-sub-col' },
+                  text_field_wrapper_html: { class: 'w-col w-col-8' },
+                  input_html: { class: 'positive', required: true },
+                  validation_text: false
+
+              = form.input :name, as: :string,
+                wrapper: :two_columns,
+                wrapper_class: 'w-row u-marginbottom-30 card card-terciary',
+                label_wrapper_html: { class: 'w-col w-col-4 w-sub-col' },
+                text_field_wrapper_html: { class: 'w-col w-col-8' },
+                input_html: { class: 'positive', required: true },
+                validation_text: false
+
+              = form.input :permalink, as: :string,
+                wrapper: :two_columns_with_postfix,
+                wrapper_class: 'w-row u-marginbottom-30 card card-terciary',
+                label_wrapper_html: { class: 'w-col w-col-4 w-sub-col' },
+                text_field_wrapper_html: { class: 'w-col w-col-8' },
+                input_html: { class: 'postfix positive', required: true },
+                field_wrapper_html: { class: 'w-col w-col-5 w-col-small-5 w-col-tiny-5' },
+                validation_text: false,
+                preppend_text_wrapper_html: { class: 'w-col w-col-7 w-col-small-7 w-col-tiny-7 text-field prefix no-hover' },
+                preppend_input_text: t('.form.info.permalink'),
+                preppend_input_text_wrapper_html: { class: 'fontsize-smallest' }
+
+              = form.association :category, as: :select,
+                collection: Category.order(:name_pt),
+                prompt: t('simple_form.prompts.project.category'),
+                wrapper: :two_columns,
+                wrapper_class: 'w-row u-marginbottom-30 card card-terciary',
+                label_wrapper_html: { class: 'w-col w-col-4 w-sub-col' },
+                text_field_wrapper_html: { class: 'w-col w-col-8' },
+                input_html: { required: true },
+                validation_text: false
+
+              = form.input :goal, as: :tel,
+                wrapper: :two_columns_with_postfix,
+                wrapper_class: 'w-row u-marginbottom-30 card card-terciary',
+                label_wrapper_html: { class: 'w-col w-col-4 w-sub-col' },
+                text_field_wrapper_html: { class: 'w-col w-col-8' },
+                input_html: { class: 'postfix positive', required: true },
+                field_wrapper_html: { class: 'w-col w-col-4 w-col-small-4 w-col-tiny-4' },
+                validation_text: false,
+                preppend_text_wrapper_html: { class: 'w-col w-col-1 w-col-small-1 w-col-tiny-1 text-field prefix no-hover' },
+                preppend_input_text: '$',
+                preppend_input_text_wrapper_html: { class: 'fontsize-base lineheight-tightest' }
+
+              = form.input :online_days, as: :tel,
+                wrapper: :two_columns_with_postfix,
+                wrapper_class: 'w-row u-marginbottom-30 card card-terciary',
+                label_wrapper_html: { class: 'w-col w-col-4 w-sub-col' },
+                text_field_wrapper_html: { class: 'w-col w-col-8' },
+                input_html: { class: 'prefix positive u-text-center', required: true },
+                field_wrapper_html: { class: 'w-col w-col-3 w-col-small-3 w-col-tiny-3' },
+                validation_text: false,
+                append_text_wrapper_html: { class: 'w-col w-col-2 w-col-small-2 w-col-tiny-2 text-field postfix no-hover' },
+                append_input_text: 'Days',
+                append_input_text_wrapper_html: { class: 'fontsize-base lineheight-tightest' }
+
+              .card.card-terciary
+                = form.association :bank_card_detail, as: :select,
+                  collection: @user.bank_card_details.active.collect { |c| ["#{c.full_name} - #{c.show_mask_account_number}", c.id] },
+                  prompt: 'Select Account',
+                  wrapper: :one_col,
+                  wrapper_class: '',
+                  label_wrapper_html: {class: 'w-col w-col-12'},
+                  text_field_wrapper_html: {class: 'w-col w-col-12'},
+                  input_html: {class: 'positive', required: false, rows: 6},
+                  validation_text: false,
+                  label: 'Receiving Bank Name'
+
+        .w-col.w-col-4.w-hidden-small.w-hidden-tiny
+          a.w-inline-block.card.u-radius.card-guide href="http://beta.catarse.me/guides#goals" target="_blank"
+            = image_tag "icon-guides-blue-sm.png", class: "u-left"
+            .fontweight-semibold.fontsize-smallest.fontcolor-secondary Need help or want marketing tips?
+            .fontsize-small.fontcolor-dashboard ProduceRun Support Link
+
+    .section
+      .w-container
+        .w-row
+          .w-col.w-col-4
+          .w-col.w-col-4
+            = hidden_field_tag 'anchor', 'basics'
+            = form.button :submit, t('.form.submit'), class:'btn btn-large', id: 'basics-save'
+          .w-col.w-col-4

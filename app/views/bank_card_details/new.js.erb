@@ -1,0 +1,4 @@
+$('#receiving_bank_form').html("<%=escape_javascript(render(:partial => '/users/receiving_bank_form',collections: {bank_card_detail: @bank_card_detail}))%>");
+$('#receiving_banks_list').hide();
+$('#receiving_bank_form').show();
+$.msg('unblock')

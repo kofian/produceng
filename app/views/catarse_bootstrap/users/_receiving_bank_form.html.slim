@@ -1,0 +1,56 @@
+- @bank_card_detail ||= BankCardDetail.new
+= simple_form_for @bank_card_detail, html: { class: 'w-form',id: 'bank_card_details_form' },remote: true do |bform|
+  = hidden_field_tag :anchor, 'billing'
+  .w-row
+    #receiving_bank_form_errors.w-col-12
+  .w-row
+    .w-col-12
+      .w-form.card.card-terciary.u-marginbottom-20
+        .w-row
+          .w-col-12
+            .fontsize-base.fontweight-semibold.u-marginbottom-20 Personal Information
+        .w-row
+          .w-col.w-col-7.w-sub-col
+            .w-row
+              = bform.input :first_name, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+            .w-row
+              = bform.input :last_name, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+            .w-row
+              = bform.input :email, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+            .w-row
+              = bform.input :phone_number, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+            .w-row
+              /= bform.date_select :date_of_birth, {order: [:month, :day, :year], use_month_numbers: true, start_year: Date.today.year-100, end_year: Date.today.year, prompt: {day: 'DD', month: 'MM', year: 'YY'}}, class: 'w-input text-field positive', style: 'width:30%;display:inline;'
+              = bform.input :date_of_birth, as: :date, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-col w-col-12 w-input text-field positive', style: 'width:32%;display:inline;'},order: [:month, :day, :year], use_month_numbers: true, start_year: Date.today.year-100, end_year: Date.today.year, prompt: {day: 'DD', month: 'MM', year: 'YY'}
+            .w-row
+              = bform.input :bank_ss_number, :label => 'SSN', as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+            .w-row
+              = bform.input :street_address, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive '}
+            .w-row
+              = bform.input :locality, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive '}
+            .w-row
+              /= bform.input :region, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12 w-sub-col'}, input_html: {class: 'w-input text-field positive '}
+              = bform.input :region,:collection => us_states, :label => 'Region' ,:include_blank => false, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12 w-sub-col'}, input_html: {class: 'w-input text-field positive '}
+              = bform.input :postal_code, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12'}, input_html: {class: 'w-input text-field positive '}
+
+        .divider.u-marginbottom-20
+        .w-row
+          .w-col-12
+            .fontsize-base.fontweight-semibold.u-marginbottom-20 Funding Information
+        .w-row
+          .w-col.w-col-7.w-sub-col
+            .w-row
+              = bform.input :funding_email, as: :string, label: 'Email', wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+            .w-row
+              = bform.input :funding_phone_number, as: :string, label: 'Mobile Number', wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+            .w-row
+              = bform.input :funding_account_number, as: :string, label: 'Account Number', wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+            .w-row
+              = bform.input :funding_routing_number, as: :string, label: 'Routing Number', wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+            .w-row
+              = bform.input :funding_routing_number_confirmation, as: :string, label: 'Verify Routing Number', wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+
+    .w-form.u-marginbottom-20
+      .w-row
+        .w-col.w-col-4.w-col-offset-4
+          = bform.submit value: 'Save', class: 'btn btn-large'

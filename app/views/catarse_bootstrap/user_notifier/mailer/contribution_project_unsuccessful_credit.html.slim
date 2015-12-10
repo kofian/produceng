@@ -1,0 +1,18 @@
+- contribution = @notification.contribution
+
+|Hello, #{contribution.user.name}!
+br
+br
+| Unfortuntely this ProduceRun campaign #{link_to(contribution.project.name, project_by_slug_url(permalink: contribution.project.permalink))} you reserved did not reach the minimum target set for #{CatarseSettings[:company_name]} will not be able to run it to town this time.
+br
+br
+| As your purchase was performed using credits , our team will contact you to carry out the refund.
+br
+br
+| If you got any questions, please contact us responding to this message or by e -mail #{mail_to CatarseSettings[:email_contact]} 
+| And inform your support identification key , which is : #{contribution.payment_id}
+br
+br
+|Thanks,
+br
+| #{CatarseSettings[:company_name]}

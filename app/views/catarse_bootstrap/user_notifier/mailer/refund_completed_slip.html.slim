@@ -1,0 +1,32 @@
+- contribution = @notification.contribution
+- company_name = CatarseSettings[:company_name]
+- contact_email = CatarseSettings[:email_contact]
+- user = @notification.contribution.user
+- bank_account = user.bank_account
+
+|Hello, <strong>#{contribution.user.display_name}</strong>!
+br
+br
+| The repayment of its support for the campaign #{link_to(contribution.project.name, project_by_slug_url(permalink: contribution.project.permalink))} no #{company_name} It has just been made to the bank account:
+br
+br
+| Bank: #{bank_account.try(:bank).to_s}
+br
+| Account: #{bank_account.try(:agency)} - #{bank_account.try(:agency_digit)}
+br
+| Routing: #{bank_account.try(:account)} - #{bank_account.try(:account_digit)}
+br
+| Bank Account Owner: #{bank_account.try(:owner_name)}
+br
+| Tax: #{bank_account.try(:owner_document)}  
+br
+br
+| The support of your identification key is: #{contribution.payment_id}
+br
+br
+| If you got any questions or have any trouble in this process, please contact us responding to this message or by e -mail #{mail_to contact_email}. To expedite service , we ask you to enter the identification code.
+br
+br
+|Thanks,
+br
+| #{company_name}

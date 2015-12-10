@@ -1,0 +1,19 @@
+- contribution = @notification.contribution
+
+|Hello, #{contribution.user.name}!
+br
+br
+| Unfortunately this ProduceRun Campaign #{link_to(contribution.project.name, project_by_slug_url(permalink: contribution.project.permalink))} you reserved did not reach the minimum target set and #{CatarseSettings[:company_name]} will not be running this to town.
+br
+br
+| Within 5 working days we will refund the value of their reservation , which <strong>will come as the next credit or 
+| Subsequent invoice of your card</strong>. Once the refund is made, you will receive an email confirmation of the operation.
+br
+br
+| If you got any questions, please contact us responding to this message or by e -mail #{mail_to CatarseSettings[:email_contact]} 
+| And inform your support identification key , which is: #{contribution.payment_id}
+br
+br
+|Thankss,
+br
+| #{CatarseSettings[:company_name]}

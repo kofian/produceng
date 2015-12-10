@@ -1,0 +1,16 @@
+- contribution = @notification.contribution
+p Hello, <strong>#{contribution.user.display_name}</strong>!
+p
+  | Congratulations! The campaign #{link_to(contribution.project.name, project_by_slug_url(permalink: contribution.project.permalink))} that, 
+  | including you, had #{contribution.project.total_contributions} enough backers to run to town. #{CatarseSettings[:company_name]}.
+p This e-mail serves as a <strong>final purchase receipt for you to show the farmer</strong>.
+= Partial Surrender: 'contribution_data', locals: {contribution: contribution}
+
+
+- Contribution = @ notification.contribution
+p Hello , < strong> # { contribution.user.display_name } < / strong >
+p
+  | Congratulations ! The project # { link_to ( contribution.project.name , project_by_slug_url (permalink : contribution.project.permalink ) ) } that ,
+  | Including you, had contribution.project.total_contributions # { } supporters , was funded with success in # { CatarseSettings [: company_name ]} .
+p This email serves as a < strong> final purchase receipt for you to show the farmer < / strong > .
+= Partial surrender : ' contribution_data ' locals : { contribution : contribution }

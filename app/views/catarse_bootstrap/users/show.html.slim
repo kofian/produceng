@@ -1,0 +1,64 @@
+= render 'shared/header_big', overlayer: true
+- if policy(resource).update?
+  - projects_to_show = resource.contributed_projects
+- else
+  - projects_to_show = resource.contributed_projects.where(contributions: {anonymous: false})
+
+.hero-half
+  .w-container.content-hero-profile
+    .w-row.u-text-center
+      .w-col.w-col-3
+      .w-col.w-col-6
+        .thumb.big.u-marginbottom-20.u-round
+          = resource.decorate.display_image_html({width: 119, height: 121, image_class: 'u-round'})
+        .fontsize-largest.fontweight-semibold.u-marginbottom-20
+          = resource.decorate.display_name
+        .w-hidden-small.w-hidden-tiny.u-marginbottom-40.fontsize-base
+          | Joined in #{localize(resource.created_at, format: "%B of %Y")}
+          br
+          | Supported #{projects_to_show.count} campaigns and has created #{resource.created_projects.count} campaigns&nbsp;
+      .w-col.w-col-3
+  .hero-profile style="background-image: url('#{resource.cover_image.try(:base).try(:url) || resource.uploaded_image.url}')"
+
+nav.project-nav.u-text-center.u-marginbottom-30.profile style='z-index: 10; position: relative;'
+  .w-container#default-tab data-anchor=(resource.created_projects.empty? ? 'contributed' : 'created')
+    - if policy(resource).update?
+      = link_to edit_user_path(resource), class: 'nav-tab dashboard' do
+        span.fa.fa-cog
+        | &nbsp; Edit Profile
+    = link_to '#contributed', id: 'contributed_link', class: 'nav-tab' , data: {target: '#contributed-tab'} do
+      | Supported &nbsp;
+      span.badge= projects_to_show.count
+    = link_to '#created', id: 'created_link', class: 'nav-tab' , data: {target: '#created-tab'} do
+      | Created &nbsp;
+      span.badge= resource.created_projects.count
+    = link_to '#about', id: 'about_link', class: 'nav-tab' , data: {target: '#about-tab'} do
+      | About
+
+
+section.section
+  .w-container
+    .w-row
+      #contributed-tab.content.w-hidden
+        - if resource.contributed_projects.empty?
+          .w-row.u-text-center
+            .w-col.w-col-2
+            .w-col.w-col-8
+              .fontsize-base #{resource.name} not backed any campaigns yet .
+            .w-col.w-col-2
+        - else
+          == render_projects projects_to_show.most_recent_first, 'profile_contributed_projects', { wrapper_class: 'w-col w-col-4 u-marginbottom-30' }
+
+      #created-tab.content.w-hidden
+        - if resource.created_projects.empty?
+          .w-row.u-text-center
+            .w-col.w-col-2
+            .w-col.w-col-8
+              .fontsize-base #{resource.name} has not created any campaign.
+            .w-col.w-col-2
+        - else
+          == render_projects resource.created_projects.order_status.most_recent_first, 'profile_created_projects', { wrapper_class: 'w-col w-col-4 u-marginbottom-30' }
+      #about-tab.content.w-hidden
+        = render 'user_about', resource: resource
+
+= render 'shared/footer_big'

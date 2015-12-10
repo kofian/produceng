@@ -1,0 +1,12 @@
+- contribution = @notification.contribution
+p User #{contribution.user.display_name}
+p User Email: #{contribution.user.email}
+p Payment Email: #{contribution.payer_email}
+p Name of payer: #{contribution.payer_name}
+p Campaign: #{contribution.project.name}
+p Support Key: #{contribution.key}
+p The means of payment identifier: #{contribution.payment_id}
+p Purchased amount: #{contribution.decorate.display_value} 
+p Payment Method: #{contribution.payment_method}
+p Payment Choice: #{contribution.payment_choice}
+p Date of Purchase: #{contribution.created_at}

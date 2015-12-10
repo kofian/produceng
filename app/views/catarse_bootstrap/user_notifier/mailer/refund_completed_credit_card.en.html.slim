@@ -1,0 +1,18 @@
+-contribution = @notification.contribution
+- company_name = CatarseSettings[:company_name]
+- contact_email = CatarseSettings[:email_contact]
+|Hi, <strong>#{contribution.user.display_name}</strong>!
+br
+br
+| The refund of your contribuition to the project #{link_to contribution.project.name, project_by_slug_url(permalink: contribution.project.permalink)} in #{company_name} has been done in your credit card!
+br
+br
+| The identification key of your support is: #{contribution.payment_id}
+br/
+br/
+| If you have any question or detected any problem during the process, please e-mail us at #{mail_to contact_email} informing the identification key of your support.
+br
+br
+|Best regards,
+br
+| #{company_name}

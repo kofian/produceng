@@ -1,0 +1,24 @@
+- contribution = @ notification.contribution
+
+| Hello, < strong > # { contribution.user.display_name } </ strong >
+br
+br
+'We found that you have started buying from this ProduceRun Campaign # { link_to contribution.project.name, project_by_slug_url (permalink: contribution.project.permalink, ref: 'notificacao_pending') } ,
+| But didn't to complete it.
+br
+br
+| Your support is essential and you can join the other # { contribution.project.total_contributions } people to make this run happen.
+br
+br
+| # { link_to "You have to # {l (contribution.project.expires_at) } to make a purchase where you left off. "edit_project_contribution_url (project_id: contribution.project.id, id: contribution.id, ref: 'notification_pending' )}
+br
+br
+| If the reason you didn' t complete your purchase was because of a technical problem, we recommend try again using different web browser.
+br
+br
+| If the problem persists, please contact us immediately replying to this message or by e-mail # { mail_to CatarseSettings [: email_contact] }
+br
+br
+| Thanks again,
+br
+| # { CatarseSettings [: company_name] }

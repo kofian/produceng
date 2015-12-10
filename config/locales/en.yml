@@ -1,0 +1,19 @@
+---
+en:
+  not_filled: not Entered
+  days: days
+  facebook_locale: en
+  failure_title: 'Please correct the following errors :'
+  dismiss_error_messages: 'Hide this'
+  i_just_contributed: I just support the campaign %{name} in ProduceRun
+  'no': Do Not
+  'yes': Sim
+  not_informed: uninformed
+  or: or
+  sending: Sending ...
+  share_my_contributions: Check out the campaign
+  site:
+    description: The ProduceRun is a different tool - and collaborative - to take their part of the project !
+    keywords: ProduceRun , crowdfunding , collective financing , design, community, fresh, food, farm, farmers, open source
+    meta_title: "%{title} | %{company_name}"
+    title: ProduceRun - Buy Fresh Food Directly From Farm

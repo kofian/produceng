@@ -1,0 +1,41 @@
+- project = @notification.project
+
+- project_link = edit_project_url(project)
+- company_name = CatarseSettings[:company_name]
+
+| Hello #{project.user.name},
+br/
+br/
+| The term of the campaign #{link_to project.name, project_link} no #{company_name} has came to an end.
+br/
+br/
+| Due to payment times there are outstanding payments for your project .
+'  To compute such support we will be awaiting confirmation of these contributions for up to <strong>4 working days after the end of the campaign</strong>.
+'  Remember, this is where we discount the rate of 10% on the ProduceRun of services and payment methods. This rate is applied to the total amount collected .
+br/
+br/
+| Check out what can happen after that date:
+br/
+br/
+| <strong>1) If your project has reached or exceeded the goal:</strong>
+'  let's just wait for the time to account for those last minute support. With this process completed , simply
+= link_to 'pass on the collected amount for you.', 'http://support.producerun.com', target: '__blank' 
+br/
+br/
+| <strong>2) If your campaign has not yet reached the goal:</strong> we wait and hope for confirmation of such support ! Reaching 100 % of target begin the transfer of money for you.
+br/
+| Otherwise we begin the #{link_to 'reimbursement of his supporters', 'http://www.producerun.com', target: '__blank'}.
+br/
+br/
+| <strong>Attention:</strong> To make the transfer will use the registration information and filled in the bank <strong>#{link_to 'Control Panel Account tab', edit_project_url(project, anchor: 'user_settings')}</strong> of your campaign. <strong>Make sure that the data is correct.</strong>
+br/
+br/
+= image_tag 'https://s3.amazonaws.com/cdn.catarse/notifications_assets/funded-conta.gif', width: 600
+br/
+br/
+| If you got any questions, please reply to this message or contact us directly via e- mail #{mail_to CatarseSettings[:email_projects]}. If you need to talk via phone we will be available Monday to Friday from 9am to 6am CST at (+1) 319 640 7002.
+br/
+br/
+| Thanks,
+br/
+= company_name

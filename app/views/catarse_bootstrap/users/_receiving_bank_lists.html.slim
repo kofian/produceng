@@ -1,0 +1,40 @@
+- get_bank_details
+.w-row
+  .w-col-12
+    // TODO: THIS IS THE LIST
+    .u-marginbottom-20
+      = link_to 'Edit', 'javascript:', class: 'btn btn-tiny btn-ib',id: 'btn_receiving_edit_bank'
+      /= link_to 'Remove', 'javascript:', class: 'btn btn-tiny btn-ib'
+    table#receiving_banks_list.table.table-bordered.table-hover
+      thead
+        tr
+          th.u-text-center {width='10%'}
+            'Select
+          th
+            'Bank Account
+          th.u-text-center {width='20%'}
+            'Status
+      tbody
+        - if @bank_card_details.any?
+          - @bank_card_details.each do |bank_card_detail|
+            tr
+              td.u-text-center
+                = radio_button_tag :bank_card_detail, bank_card_detail.id
+              td
+                p.fontweight-bold
+                  = bank_card_detail.full_name
+                  br
+                  small.fontweight-light
+                    = bank_card_detail.show_mask_account_number
+              td.u-text-center
+                p.fontweight-bold
+                  = bank_card_detail.show_status
+        - else
+          tr
+            td colspan = '3' No Card Details
+
+  // TODO: SHOW ONLY WHEN THERE ARE NO BANKS
+  .w-form.u-marginbottom-20
+    .w-row
+      .w-col.w-col-4.w-col-offset-4
+        = link_to 'Add Bank','javascript:;', class: 'btn btn-large',:id => 'btn_receiving_add_bank'

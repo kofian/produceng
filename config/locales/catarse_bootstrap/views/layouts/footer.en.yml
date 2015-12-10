@@ -1,0 +1,33 @@
+---
+en:
+  layouts:
+    footer:
+      links:
+        jobs: Work With Us
+        blog: Blog
+        contact: Contact
+        discover: Discover Campaigns
+        start: How it Works
+        expiring: In the Final Stretch
+        facebook: Facebook
+        faq: Help
+        guides: Guide of Directors
+        feedback: Feedback
+        github: GitHub
+        instagram: Instagram
+        near: Near Me
+        press: Press
+        privacy: Privacy Policy
+        recents: Recent
+        recommended: Recommended
+        submit: Sell Food Now
+        terms: Terms of Use
+        twitter: Twitter
+      texts:
+        copyleft: ProduceRun, Inc.
+      titles:
+        about: Help
+        contact: Connect With Us!
+        newsletter: Subscribe to our News
+        sitemap: Browse
+        social: Social Networks

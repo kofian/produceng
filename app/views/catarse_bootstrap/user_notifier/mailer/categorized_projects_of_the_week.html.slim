@@ -1,0 +1,23 @@
+- user = @notification.user
+- category = @notification.category
+
+| Hi #{user.name},
+br/
+br/
+| What's New This Week in #{category.name_pt} on ProduceRun.
+br/
+br/
+- category.projects.of_current_week.with_state('online').each do |project|
+  |#{link_to(project.name, project_by_slug_url(permalink: project.permalink, ref: 'notificacao_subscription_category'))}
+  br
+  |#{project.headline}
+  br
+  br
+br/
+br/
+|Thank You,
+br/
+| #{CatarseSettings[:company_name]}
+br/
+br/
+| #{link_to 'Unsubscribe', unsubscribe_category_url(category), target:'__blank'} from this category which you recently bought from.

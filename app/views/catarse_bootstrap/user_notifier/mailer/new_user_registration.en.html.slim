@@ -1,0 +1,45 @@
+- user = @notification.user
+- expiring = ProjectsForHome.expiring
+
+| Hello
+- if user.name
+  | , #{user.name}!
+
+br/
+br/
+| Welcome to ProduceRun. The first open source crowd buying from the farmers to your local communities.
+br/
+br/
+| Just so you do not forget, your access email is: #{user.email}
+br/
+br/
+| To begin, it is worth knowing that three campaigns are in the final stretch:
+br/
+br/
+br/
+
+- if expiring.present?
+  table border="0" cellpadding="0" cellspacing="0" width="540" align="center"
+    - expiring.each do |project|
+    	tr
+        td width="540" valign="top" style="margin-bottom: 10px;"
+          = link_to project_by_slug_url(project.permalink), style: 'text-decoration: none; color: #333;' do
+            = image_tag(project.display_image, size: '160x100', style: 'margin: 0 15px 15px 0; float: left')
+            p style='font-size: 16px; margin: 0 0 10px; color: #FF8100;'= project.name
+            p style='font-size: 13px'= project.headline
+
+br/
+center
+  = link_to explore_url, target: '__blank' do
+    = image_tag "#{CatarseSettings[:base_url]}/assets/catarse_bootstrap/botao_bemvindo_EN_big.png"
+
+
+br
+br
+| Thanks,
+br
+= CatarseSettings[:company_name]
+
+  
+
+

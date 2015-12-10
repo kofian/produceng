@@ -1,0 +1,19 @@
+-contribution = @notification.contribution
+- company_name = CatarseSettings[:company_name]
+- contact_email = CatarseSettings[:email_contact]
+|Hello, <strong>#{contribution.user.display_name}</strong>!
+br
+br
+| The repayment of its support for the campaign #{link_to contribution.project.name, project_by_slug_url(permalink: contribution.project.permalink)} no #{company_name} It has just been completed! Effective credit should happen in the next bill , if it is still open, or the next , if that month has already been closed.
+br
+br
+| The support of your identification key is: #{contribution.payment_id}
+br/
+br/
+| If you got any questions or have any trouble in this process, please contact us answering
+' This message or by e -mail #{mail_to contact_email}. To expedite service , please enter the Key.
+br
+br
+|Thanks,
+br
+| #{company_name}

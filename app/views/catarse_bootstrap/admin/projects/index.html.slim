@@ -1,0 +1,162 @@
+= render 'shared/header_big'
+.w-row.admin.use-sort
+  h3.fontsize-larger.admin--title
+    =t('admin.projects.title')
+    |&nbsp;(
+    = @total_projects
+    '&nbsp; total campaigns)
+    
+  = simple_form_for '', url: admin_projects_path, html:{class:'form--filter w-clearfix'}, method: :get do |form|
+    .w-row
+      .w-col-10.w-col
+        .w-row
+          = form.input :order_by, as: :hidden, input_html: {value: params[:order_by], class: 'w-input text-field'}
+          .w-col-3.w-col
+            = form.input :pg_search, as: :string, label: t('admin.filter.pg_search'), input_html: {value: params[:pg_search], class: 'w-input text-field'}
+          .w-col-3.w-col
+            = form.input :user_name_contains, as: :string, label: t('admin.filter.user_name_contains'), input_html: {value: params[:user_name_contains], class: 'w-input text-field'}
+          .w-col-2.w-col
+            = form.input :by_user_email, as: :string, label: t('.by_user_email'), input_html: {value: params[:by_user_email], class: 'w-input text-field'}
+          .w-col-2.w-col
+            = form.input :with_state, collection: Project.state_names, label: t('admin.filter.with_state'), as: :select, selected: params[:with_state], include_blank: true, input_html: { class: 'w-input text-field' }
+          .w-col-2.w-col
+            = form.input :with_payment_engine, collection: ['Braintree', 'Paypal','Dwolla'], label: 'Means of Payment', as: :select, include_blank: true, selected: params[:with_payment_engine]
+        .w-row.more-filters style="display: none"
+          - [:between_created_at, :between_expires_at, :between_online_date, :between_updated_at, :goal_between].each_with_index do |between_field, index|
+            - mask = (between_field == :goal_between ? nil : '99/99/9999')
+            - if index % 3 == 0
+              .w-row
+            .w-col-2.w-col
+              = form.input "#{between_field}[start_at]", as: :string, label: t(".#{between_field}"), input_html: {value: params[between_field] && params[between_field][:start_at], data: { fixed_mask: mask } , class: 'w-input text-field'}
+            .w-col-2.no-label.w-col
+              = form.input "#{between_field}[ends_at]", as: :string, label: false, input_html: { value: params[between_field] && params[between_field][:ends_at], data: { fixed_mask: mask } , class: 'w-input text-field'}
+      
+      .w-col-2.no-label.w-col
+        = form.button :button, t('admin.filter.submit'), type: :submit, class: 'btn btn-medium btn--filter' 
+      
+    .w-row
+      .filter--expander
+        =link_to t('admin.filter.more'), '#', class: 'toggle-filters', data: {more: t('admin.filter.more'), less: t('admin.filter.less')}
+
+  .w-row
+    h2.result--head
+      'Result: 
+      = @scoped_projects.count(:all)
+      '
+      = pluralize_without_number(@scoped_projects.count(:all), t('project_singular'), t('project_plural'))
+      '
+      = pluralize_without_number @scoped_projects.count(:all), t('found_singular'), t('found_plural')
+
+
+  = paginate @projects
+  - if @scoped_projects.count(:all) < 1
+    = t('.no_projects')
+  - else
+    table.table.fontsize-smallest.table-bordered.table-striped.table-hover
+      thead
+        tr
+          th.w-col-2.w-col= t('admin.table.name')
+          th.w-col-1.w-col= t('.pagarme')
+          th.w-col-1.w-col= t('admin.table.category')
+          th.w-col-1.w-col
+            a data-sort="goal" href='#'= t('.goal')
+            span.sort-order
+          th.w-col-1.w-col
+            a data-sort="project_totals.progress" href='#'= t('.pledged')
+            span.sort-order
+          th.w-col-1.w-col
+            a data-sort="project_totals.total_contributions" href='#'= t('.total_contributions')
+            span.sort-order
+          th.w-col-1.w-col= t('admin.table.recommended')
+          th.w-col-1.w-col
+            a data-sort="online_date" href='#'= t('.online_date')
+            span.sort-order
+          th.w-col-1.w-col
+            a data-sort="projects.expires_at" href='#'= t('.expires_at')
+            span.sort-order
+          th.w-col-1.w-col
+            a data-sort="updated_at" href='#'= t('.last_modification')
+            span.sort-order
+          th.w-col-1.w-col= t('admin.table.state')
+      tbody
+        - @projects.includes(:category).each do |project|
+          tr id=project.id
+            td.w-col-2.w-col= link_to project.name, project_by_slug_path(permalink: project.permalink)
+            td.w-col-1.w-col= (project.using_pagarme? ? t('yes') : t('no'))
+            td.w-col-1.w-col= project.category
+            td.w-col-1.w-col= best_in_place [:admin, project], :goal, method: :put, type: :input, display_as: :display_goal
+            td.w-col-1.w-col= "#{project.display_pledged} (#{project.progress}%)"
+            td.w-col-1.w-col= project.total_contributions
+            td.w-col-1.w-col= best_in_place [:admin, project], :recommended, method: :put, type: :checkbox, collection: [t('no'), t('yes')]
+            td.w-col-1.w-col= project.online_date.strftime('%d/%m/%Y') if project.online_date
+            td.w-col-1.w-col= project.display_expires_at
+            td.w-col-1.w-col= project.updated_at.strftime('%d/%m/%Y')
+            td.w-col-1.w-col
+              .dropdown.dropdown-right
+                button.btn.btn-smaller#dLabel aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
+                  - if project.online?
+                      span.label.label-online= project.state.humanize
+                  - elsif project.successful?
+                    span.label.label-success= project.state.humanize
+                  - elsif project.failed? or project.rejected?
+                    span.label.label-important= project.state.humanize
+                  - elsif project.waiting_funds?
+                    span.label.label-warning= project.state.humanize
+                  - else
+                    span.label= project.state.humanize
+                  span.caret
+                ul.dropdown-menu aria-labelledby="dLabel" 
+                  - if project.can_push_to_online?
+                    li
+                      = link_to push_to_online_admin_project_path(project), class: 'w-dropdown-link dropdown-link fontsize-smaller', method: :put do
+                        span.fa.fa-toggle-on
+                        | &nbsp;&nbsp;
+                        = t('admin.table.put_online')
+                  - if project.can_approve?
+                    li
+                      = link_to approve_admin_project_path(project), class: 'w-dropdown-link dropdown-link fontsize-smaller', method: :put do
+                        span.fa.fa-check
+                        | &nbsp;&nbsp;
+                        = t('admin.table.approve')
+
+                  - if project.can_reject?
+                    li
+                      = link_to reject_admin_project_path(project), class: 'w-dropdown-link dropdown-link fontsize-smaller', method: :put  do
+                        span.fa.fa-close
+                        | &nbsp;&nbsp;
+                        = t('admin.table.reject')
+
+                  - if project.can_push_to_draft?
+                    li
+                      = link_to  push_to_draft_admin_project_path(project), class: 'w-dropdown-link dropdown-link fontsize-smaller', method: :put  do
+                        span.fa.fa-file-text-o
+                        | &nbsp;&nbsp;
+                        = t('admin.table.send_to_draft')
+                  - if project.can_push_to_trash?
+                    li.divider
+                    li
+                      = link_to  push_to_trash_admin_project_path(project),class: 'w-dropdown-link dropdown-link fontsize-smaller', data:{ confirm: t('admin.table.confirmation')}, method: :put  do
+                        span.fa.fa-trash-o
+                        | &nbsp;&nbsp;
+                        = t('admin.table.send_to_trash')
+                  - if project.successful?
+                    li
+                      = link_to send_to_release_admin_project_path(project), class: 'w-dropdown-link dropdown-link fontsize-smaller', method: :put do
+                        span.fa.fa-file-text-o
+                        | &nbsp;&nbsp;
+                        = t('admin.table.send_to_release')
+                    li
+                      = link_to send_to_refund_admin_project_path(project), class: 'w-dropdown-link dropdown-link fontsize-smaller', method: :put do
+                        span.fa.fa-file-text-o
+                        | &nbsp;&nbsp;
+                        = t('admin.table.send_to_refund')
+                  - if project.failed?
+                    li
+                      = link_to send_to_refund_admin_project_path(project), class: 'w-dropdown-link dropdown-link fontsize-smaller', method: :put do
+                        span.fa.fa-file-text-o
+                        | &nbsp;&nbsp;
+                        = t('admin.table.send_to_refund')
+
+
+  = paginate @projects
+= render 'shared/footer_big'

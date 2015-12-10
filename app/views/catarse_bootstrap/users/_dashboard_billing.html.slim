@@ -1,0 +1,31 @@
+.w-row
+  .w-col.w-col-10.w-col-push-1
+    = render 'devise/shared/alert'
+
+    .w-row
+      .w-col-12
+        .fontsize-large.u-marginbottom-20
+          .fontweight-semibold
+            'Your Payment Methods
+          .fontsize-small
+            .payment-lock.payment-icon-lock
+            'SECURE PAYMENT
+
+    ul.nav.dashboard-nav style='z-index: 10; position: relative;'
+      li
+        /= link_to '#depositing_banks', id: 'payment_depositing_banks', class: 'dashboard-nav-link ', data: {toggle: 'tab'} do
+          | Depositing Bank
+      li.active
+        = link_to '#receiving_banks', id: 'payment_receiving_banks', class: 'dashboard-nav-link ', data: {toggle: 'tab'} do
+          | Receiving Bank
+    section.u-paddingtop-10.u-paddingbottom-10
+      .w-container
+        .w-row
+          article.tab-container
+            #receiving_banks.w-tab-pane.content.tab-content
+              #receiving_banks_list.receiving_bank_details
+                = render partial: 'receiving_bank_lists'
+              #receiving_bank_form.receiving_bank_details
+                = render partial: 'receiving_bank_form'
+            #depositing_banks.content.w-tab-pane.active.tab-content
+              /= render partial: 'dashboard_billing_depositing_money'

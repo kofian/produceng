@@ -1,0 +1,10 @@
+<% unless @valid_rec%>
+  $('#receiving_bank_form').html("<%=escape_javascript(render(:partial => '/users/receiving_bank_form',collections: {bank_card_detail: @bank_card_detail}))%>");
+  $('#receiving_bank_form_errors').html("<%=escape_javascript(render(:partial => '/devise/shared/alert',locals: {resource: @bank_card_detail}))%>");
+<%else%>
+  $('#receiving_bank_form').hide();
+  $('#receiving_banks_list').html("<%=escape_javascript(render(:partial => '/users/receiving_bank_lists'))%>");
+  $('#receiving_banks_list').show();
+  $('#bank_card_details_form')[0].reset();
+<%end%>
+  $.msg('unblock');

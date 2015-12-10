@@ -1,0 +1,10 @@
+p Hello #{@notification.user.name},
+
+p 
+  | Your ProduceRun account is now disabled. If you want to come back , you can reactivate your account at any time , just #{link_to('clicar aqui', reactivate_user_url(@notification.user, token: @notification.user.reactivate_token))} and buy high quality food or run your own ProduceRun campaign.
+
+p 
+  | Any questions you can contact us responding to this message or by e -mail #{mail_to CatarseSettings[:email_contact]}
+
+p Thanks,
+p ProduceRun

@@ -1,0 +1,35 @@
+en:
+  projects:
+    contributions:
+      refund:
+        success: 'Proseswyd yr ad-daliad yn llwyddianus'
+        error: "Roedd problem wrth brosesu'r ad-daliad"
+    backers:
+      charge:
+        payment_form:
+          first_name: Enw Cyntaf
+          last_name: Cyfenw
+          company: Cwmni
+          email: Ebost
+          phone: Rhif Ffon
+          fax: Rhif Ffacs
+          website: Gwefan
+          card_number: Rhif y Cerdyn
+          cvv: CVV
+          expiration_date: Dyddiad Darfod
+          issued_date: Dyddiad Dechrau
+          cardholder_name: "Enw'r Deiliad"
+          submit: Talu
+      review:
+        braintree: 'Braintree'
+
+        bt:
+          international:
+            section_title: "Byddi'n cael fy anfon i'r wefan prosesydd taliadau i orffen talu"
+            user_document_label: "CPF / CNPJ (ar gyfer Brasiliaid yn unig)"
+            button: "Ailgyfeirio i Payment By Braintree"
+      checkout:
+        braintree_cancel: "Fe ganslwyd dy daliad. Ceisia eto. "
+        braintree_descriptino: "Bacio project %{project_name} gyda %{value} (BRL)"
+        braintree_error: "Wps. Roedd problem wrth anfon dy daliad. Ceisia eto. "
+        success: "Mae dy daliad wedi ei dderbyn. Diolch yn fawr!"

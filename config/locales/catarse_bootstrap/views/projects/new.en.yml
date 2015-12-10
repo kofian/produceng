@@ -1,0 +1,28 @@
+---
+en:
+  projects:
+    new:
+      page-title: Sell food
+      faq:
+        titles:
+          support: holder
+          know_more: Learn more
+        links:
+          criteria: Selection Criteria
+          suport_central: Support Center
+          support_contact: Contact us
+          how_it_works: As the ProduceRun work?
+          money: How will I get the money ?
+          selection: How are campaigns selected ?
+          all_or_nothing: Why All or Nothing ?
+      form:
+        blocks:
+          first:
+            title: Let's Get Started!
+            description: Complete the information below to start the draft of your
+              ProduceRun Campaign.
+        info:
+          permalink: https://producerun.com/
+          goal: "$"
+          online_days: days
+        submit: Save and Continue

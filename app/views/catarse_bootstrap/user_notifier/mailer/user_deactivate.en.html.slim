@@ -1,0 +1,10 @@
+p Hi #{@notification.user.name},
+
+p
+  | Your account in ProduceRun has been deactivated. If you miss us, you can reactivate your account at any moment, just #{link_to('click here', reactivate_user_url(@notification.user, token: @notification.user.reactivate_token))} and get back to support or create amazing campaigns.
+
+p
+  | If you have any question you can contact us by replying this message or sending an e-mail to #{mail_to CatarseSettings[:email_contact]}
+
+p Best regards,
+p ProduceRun

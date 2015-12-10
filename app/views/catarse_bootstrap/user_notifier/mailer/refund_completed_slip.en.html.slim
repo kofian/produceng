@@ -1,0 +1,32 @@
+- contribution = @notification.contribution
+- company_name = CatarseSettings[:company_name]
+- contact_email = CatarseSettings[:email_contact]
+- user = @notification.contribution.user
+- bank_account = user.bank_account
+
+|Hi, <strong>#{contribution.user.display_name}</strong>!
+br
+br
+| The refund of your contribuition to the project #{link_to(contribution.project.name, project_by_slug_url(permalink: contribution.project.permalink))} in #{company_name} has been deposited in the bank account:
+br
+br
+| Bank: #{bank_account.try(:bank).to_s}
+br
+| Agency: #{bank_account.try(:agency)} - #{bank_account.try(:agency_digit)}
+br
+| Account: #{bank_account.try(:account)} - #{bank_account.try(:account_digit)}
+br
+| Owner's name: #{bank_account.try(:owner_name)}
+br
+| Document: #{bank_account.try(:owner_document)}
+br
+br
+| The identification key of your support is: #{contribution.payment_id}
+br
+br
+| If you have any question or detected any problem during the process, please e-mail us at #{mail_to contact_email} informing the identification key of your support.
+br
+br
+|Best regards,
+br
+| #{company_name}

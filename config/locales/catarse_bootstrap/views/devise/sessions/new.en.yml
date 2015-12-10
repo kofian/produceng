@@ -1,0 +1,20 @@
+---
+en:
+  devise:
+    sessions:
+      new:
+        no_account_html: No account?
+        titles:
+          site: Login
+          header: Login
+        links:
+          register: Register
+          password: password
+          forgot_password: I forgot my password
+        form:
+          labels:
+            remember_me: Stay logged
+          inputs:
+            submit: Log in
+            password: Password
+            facebook: Login with Facebook

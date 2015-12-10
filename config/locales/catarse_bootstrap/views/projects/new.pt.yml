@@ -1,0 +1,31 @@
+pt:
+  projects:
+    new:
+      page-title: "Comece seu projeto"
+
+      faq:
+        titles:
+          support: "Support"
+          know_more: "Know more"
+
+        links:
+          criteria: "Criteria"
+          suport_central: "Support Central"
+          support_contact: "Support Contact"
+          how_it_works: "How it works?"
+          money: "Money?"
+          selection: "Campaign selection?"
+          all_or_nothing: "All or nothing?"
+
+      form:
+        blocks:
+          first:
+            title: "Bem Vindo!"
+            description: "Preencha as informações abaixo para iniciar o rascunho do seu projeto."
+
+        info:
+          permalink: https://producerun.com
+          goal: $
+          online_days: days
+
+        submit: "Submit campaign"

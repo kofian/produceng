@@ -1,0 +1,43 @@
+- project = @notification.project
+
+- project_link = edit_project_url(project)
+- company_name = CatarseSettings[:company_name]
+
+| Hello, #{project.user.name},
+br/
+| Congratulations campaign!
+br/
+br/
+| The campaign #{link_to project.name, project_link} was successfully funded!
+br/
+br/
+| 
+' We gather here some <strong>very important information for this new stage !</strong>
+br/
+br/
+| <strong>1</strong> - The amount collected will be available in your bank account to the <strong>dia #{10.weekdays_from(project.expires_at).strftime('%d/%m/%Y')}</strong>
+br/
+| <strong>Attention</strong>: To make the transfer will use the registration information and bank filled on the tab Control Panel account of your project. <strong> Make sure that the data is correct</strong>.
+br/
+strong Check Out:
+= link_to 'As the transfer will be done?', 'http://support.producerun.com', target: '__blank'
+br/
+br/
+| 2 - <strong>Organization is everything!</strong> Na <strong>Reports tab</strong>, download spreadsheets with <strong>information on their supporters</strong> and start organizing <strong>delivery of goods!</strong> 
+br/
+br/
+= image_tag 'https://s3.amazonaws.com/cdn.catarse/notifications_assets/reports.gif', width: 600
+br/
+br/
+| <strong>3 - Talk to your supporters today, tomorrow and always !</strong> People showed respect for you to support you financially and expect the same in return. <strong> The Aba news </strong > will be available forever. <strong> Try to make posts on a recurring basis </strong> keeping its supporters informed about the progress of the campaign. 
+br/
+br/
+= image_tag 'https://s3.amazonaws.com/cdn.catarse/notifications_assets/post.gif', width: 600
+br/
+br/
+| If you got any questions, please reply to this message or contact us directly via e- mail #{mail_to CatarseSettings[:email_projects]}. If you need to talk via phone we will be available Monday to Friday from 9am to 6pm CST at (1) 319 640 7002.
+br/
+br/
+| Well done again on a running a successful ProduceRun campaign!
+br/
+| The #{company_name} Team

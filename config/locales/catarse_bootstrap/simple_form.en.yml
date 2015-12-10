@@ -1,0 +1,66 @@
+---
+en:
+  simple_form:
+    collections:
+      project:
+        traffic_sources:
+          one: I've run a ProduceRun campaign before.
+          two: someone who has run a campaign in ProduceRun told me
+          three: A friend / colleague / professional contact referred me.
+          four: from a campaign that was picking up on the platform
+          five: article in a blog
+          six: Did you see a story in the press ( news portal on the Internet, TV, newspaper,
+            magazine? )
+          seven: Heard about it in a class / course / lecture / event.
+          eight: Manage My Market Referred me.
+          nine: My Farmers Market Organisers referred me.
+          ten: I did a search on the internet and found ProduceRun.
+          other: 
+    validation_texts:
+      reward:
+        minimum_value: Enter a minimum value greater than or equal to 0
+        description: Enter a description for the reward
+      bank_account:
+        bank_id: Select a bank
+        agency: What is the agency's number?
+        account: What is the account number?
+        account_digit: What is the check digit?
+        owner_name: Enter a name with a minimum of 5 and a maximum of 30 letters
+        owner_document: Enter a valid SSN/EIN for the account holder
+      contribution:
+        payer_name: Please type the name of supporter
+        payer_email: Please enter a valid email address
+        payer_document: Please enter a valid CPF or CNPJ
+        address_line_1: Enter the address line 1. This usually your house number and street name
+        address_line_2: Enter the address line 2
+        address_state: Select a state
+        address_street: Enter the street name
+        address_number: Enter the address number
+        address_city: Enter the city name
+        address_zip_code: Enter the zip code
+        address_phone_number: Enter the phone number
+        card_name: Enter the card name
+        card_number: Enter the card number
+        card_cvv: Enter the card CVV
+        card_zip_code: Enter the card zip code
+
+    prompts:
+      project:
+        category: Select a category
+        select: Select an option
+        traffic_sources: How did you meet ProduceRun?
+    hints:
+      project:
+        select: Select an option
+        traffic_sources: How did you meet ProduceRun?
+        name: Give a name that people will easily remember.
+        permalink: Prefer something simple, straightforward, and well identifies your
+          project.
+        category: Choose the most appropriate to your campaign.
+        goal: Plan a consistent goal with your campaign proposes.
+        online_days: You can choose between 1 and 60 days for your campaign.
+        video_url: Link your video on Vimeo or Youtube.<br/>
+        about: Share with public what makes your farm the best. Share your farm practises. What's special about your goods and why they should buy from you?
+        headline: Phrase in the campaign card to catch supporters attention.
+        uploaded_image: This image will be used as the thumbnail of your campaign (
+          PNG, JPG size 600 x 340 )

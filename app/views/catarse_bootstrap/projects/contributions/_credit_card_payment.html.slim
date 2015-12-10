@@ -1,0 +1,28 @@
+.fontsize-base.fontweight-bold.fontcolor-primary Choose Payment Method
+.fontcolor-secondary.fontweight-semibold.fontsize-smallest.u-marginbottom-20
+  span.fa.fa-lock
+  |&nbsp;&nbsp;
+  = t('projects.contributions.edit.choose_payment_subtitle')
+.formwrapper.w-form.u-marginbottom-30
+
+  .w-form
+    .w-row
+      = form.input :card_name, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {required: true, class: 'w-input text-field'}, validation_text: true, required: true
+    .w-row
+      = form.input :card_number, as: :string, wrapper_html: {class: 'w-col w-col-8 w-sub-col'}, input_html: {required: true, class: 'w-input text-field'}, validation_text: true, required: true
+      = form.input :card_cvv, as: :string, wrapper_html: {class: 'w-col w-col-4'}, input_html: {required: true, class: 'w-input text-field'}, validation_text: true, required: true
+
+    .w-row
+      .w-col.w-col-8.w-sub-col
+        = form.label :card_expiration_date, class: 'field-label fontweight-semibold force-text-dark' do
+          'Expiration Date
+        .w-row
+          .w-col-6.w-col.w-sub-col
+            = select_month nil, {use_two_digit_numbers: true}, {name: nil, class: 'w-select text-field required'}
+          .w-col-6.w-col
+            = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, class: 'w-select text-field required'}
+      = form.input :card_zip_code, as: :string, wrapper_html: { class: 'w-col w-col-4' }, input_html: {required: true, class: 'w-input text-field'}, validation_text: true, required: true
+    .w-row
+      .w-col.w-col-12
+        = form.input_field :anonymous, boolean_style: :inline, class: 'checkbox-fix'
+        label.w-form-label.fontsize-smallest[for="card_save_info"] = t('.payment_save_card')

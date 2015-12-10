@@ -1,0 +1,40 @@
+- project = @notification.project
+- confirmed_contributions_today = project.contributions.confirmed_today
+
+- project_link = project_by_slug_url(permalink: project.permalink)
+- company_name = CatarseSettings[:company_name]
+
+| Hello, <strong>#{project.user.decorate.display_name}</strong>!
+br
+br
+| Today this campaign was received #{link_to "#{confirmed_contributions_today.length} New Purchase", project_by_slug_url(permalink: project.permalink, anchor: 'contributions')}.
+br/
+br/
+| #{link_to 'Post a message to backers', edit_project_url(project, anchor: 'posts')} or #{link_to 'track the metrics of its campaign', edit_project_url(project, anchor: 'reports')}!
+br
+br
+| More information about the backers of the day:
+br
+br
+table width="500" border="1" cellpadding="10" cellspacing="0" style='font-size: 13px;'
+  thead
+    tr
+      th width="100" Name of Supporter 
+      th width="100" Email
+      th width="100" Purchase amount
+      th width="200" Selected reward
+  tbody
+    - confirmed_contributions_today.each do |contribution|
+      tr
+        td= contribution.user.decorate.display_name
+        td= contribution.user.email
+        td= contribution.decorate.display_value
+        td= contribution.reward.try(:decorate).try(:display_description)
+br/
+br/
+| Remember that you can ask questions with us directly responding to this message or by e- mail #{mail_to CatarseSettings[:email_projects] }
+br/
+br/
+| Thanks,
+br
+= company_name

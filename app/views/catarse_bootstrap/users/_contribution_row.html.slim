@@ -1,0 +1,50 @@
+.w-row.w-hidden-small.w-hidden-tiny.card.card-secondary
+  .w-col.w-col-3
+    .fontsize-small.fontweight-semibold Projects supported
+  .w-col.w-col-2
+    .fontsize-small.fontweight-semibold Support value
+  .w-col.w-col-3
+    .fontsize-small.fontweight-semibold Status support
+  .w-col.w-col-4
+    .fontsize-small.fontweight-semibold Reward
+
+- collection.each do |contribution|
+  - project = contribution.project
+  .w-row.card
+    .w-col.w-col-3
+      .w-row
+        .w-col.w-col-4.u-marginbottom-10
+          = link_to (image_tag project.display_image, class: 'thumb-project u-radius', alt: project.name, width: 50), project_by_slug_path(project.permalink)
+        .w-col.w-col-8
+          .fontsize-small.fontweight-semibold= project.name
+    .w-col.w-col-2.u-marginbottom-10
+      .fontsize-base.inline-block
+        span.w-hidden-main.w-hidden-medium.fontweight-semibold> Apoio:&nbsp;&nbsp;
+        = contribution.decorate.display_value
+    .w-col.w-col-3.u-marginbottom-10
+      .w-hidden-main.w-hidden-medium.fontsize-smallest.fontweight-semibold Status do apoio:
+      .fontsize-smallest 
+        - if contribution.is_credit_card?
+          | Credit card #{contribution.installments}x$#{contribution.installment_value}
+        - else
+          | Bank slip
+      .fontsize-smallest
+        - if contribution.waiting_confirmation?
+          | Awaiting confirmation of payment
+        - elsif contribution.confirmed?
+          | Confirmed on #{contribution.decorate.display_date(:confirmed_at)}
+        - elsif contribution.refunded?
+          | Refunded on #{contribution.decorate.display_date(:refunded_at)}
+        - elsif contribution.requested_refund?
+          | Requested refund on #{contribution.decorate.display_date(:requested_refund_at)}
+    .w-col.w-col-4
+      .fontsize-smallest
+        span.w-hidden-main.w-hidden-medium.fontweight-semibold Recompensa:&nbsp;&nbsp;
+        - if contribution.reward
+          = contribution.reward.display_description
+        - else
+          |Não selecionou recompensa
+      - if contribution.reward.try(:display_deliver_estimate).present?
+        .fontsize-smallest.lineheight-looser
+          span.fontweight-semibold Delivery estimate:
+          =< contribution.reward.try(:display_deliver_estimate)

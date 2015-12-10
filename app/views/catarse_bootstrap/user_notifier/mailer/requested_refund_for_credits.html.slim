@@ -1,0 +1,29 @@
+- contribution = @notification.contribution
+
+| Hello Community!
+br/
+br/
+| This support for non- funded project was conducted through credits . Please contact the director to make the refund.
+br/
+br/
+| User Name #{contribution.user.display_name}
+br/
+| User Email : #{contribution.user.email}
+br/
+| Payment Email: #{contribution.payer_email}
+br/
+| Payer name: #{contribution.payer_name}
+br/
+| Campaign: #{contribution.project.name}
+br/
+| Contribution key: #{contribution.key}
+br/
+| The means of payment identifier: #{contribution.payment_id}
+br/
+| Purchase Price: #{contribution.decorate.display_value} 
+br/
+| Payment Method: #{contribution.payment_method}
+br/
+| Payment Choice: #{contribution.payment_choice}
+br/
+| Date of Contribution: #{contribution.created_at}

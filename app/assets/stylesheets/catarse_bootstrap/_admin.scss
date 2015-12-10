@@ -1,0 +1,152 @@
+// Admin CSS
+
+@import 'lib/bootstrap-tables';
+
+.admin--title {
+  padding: 0.5em 0 0.2em;
+  margin: 0 0 0.5em;
+}
+.result--head {
+  margin: 1em 0 0.5em;
+}
+
+.w-row.admin {
+  padding: 2em 1em;
+
+  .w-col .w-col {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &:first-of-type {
+      padding-left: 0;
+    }
+  }
+
+  table {
+    background-color: #fff;
+
+    th {
+      text-align: center;
+    }
+  }
+
+}
+
+.form--filter {
+  padding: 10px 0 0;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  margin-bottom: 1em;
+  label,
+  .required .field-label {
+    font-size: 0.8em;
+    font-weight: normal;
+    margin-bottom: 0;
+  }
+
+  .no-label {
+    margin-top: 20px;
+  }
+}
+
+.more-filters {
+  display: none;
+}
+
+.filter--expander {
+  border-top: 1px solid #ddd;
+  text-align: center;
+  a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    &.more {
+      &:before {
+        font-family: 'FontAwesome';
+        content: '\f139';
+        margin-right: 5px;
+      }
+    }
+
+    &:before {
+      font-family: 'FontAwesome';
+      content: '\f13a';
+      margin-right: 5px;
+    }
+  }
+}
+
+.btn--filter {
+  padding: 8px;
+  &:before {
+    font-family: "FontAwesome";
+    content: "\f0b0";
+    margin-right: 10px;
+  }
+}
+
+.dropdown {
+  position: relative;
+
+  &.open>.dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+
+    .divider {
+      height: 1px;
+      margin: 9px 0;
+      overflow: hidden;
+      background-color: #e5e5e5;
+    }
+  }
+
+  .dropdown-link {
+    padding: 8px 12px;
+  }
+
+  &.dropdown-right {
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  .caret {
+    margin-left: 5px;
+  }
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid\9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}

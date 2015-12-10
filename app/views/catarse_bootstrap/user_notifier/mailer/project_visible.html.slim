@@ -1,0 +1,60 @@
+- user = @notification.user
+- project = @notification.project
+
+- project_link = edit_project_url(project)
+- company_name = CatarseSettings[:company_name]
+
+|Hello, #{user.decorate.display_name}.
+br/
+br/
+| <strong>Your campaign #{link_to project.name, project_link, target: '__blank'} is published online and can now receive payments!</strong>
+br/
+br/
+| It is very important to send your campaign to everyone you know so they can reach your goal.
+'  The time is now ! We are here to help you! To discuss communication strategies with our team and receive
+' Suggestions on how to act on his campaign , answer this email or send mail to #{mail_to CatarseSettings[:email_projects]}.
+br/
+br/
+| Remember that <strong>you are responsible for promoting the campaign and take care of the campaign backers.</strong> It is your network that will largely of supporting your ProduceRun campaign! 
+br/
+br/
+strong A short list of what can and can not be changed when published online :
+br/
+br/
+strong Can be changed.
+br/
+| - Change the main display of your campaign
+br/
+| - Send news directly to email my supporters
+br/
+| - Download reports
+br/
+| - Edit the description of your project
+br/
+| - Create new rewards
+br/
+| - Change content and value of rewards that no one chose
+br/
+| - Change supporters limit of a certain reward
+br/
+| - Exhaust rewards (limiting them to an X number of supporters )
+br/
+| - Change Thumbnail and the Effect phrase of your project
+br/
+br/
+strong Can't be changed.
+br/
+| - Change campaign goal
+br/
+| - Change the chosen campaign time
+br/
+| - Change pricing where people have already bought
+br/
+br/
+| Please </strong>do not forget to include in your contact list emails:</strong>
+'  #{mail_to CatarseSettings[:email_projects]} e #{mail_to CatarseSettings[:email_contact]} to prevent our messages falling into your spam due to your email filters.
+br/
+br/
+| Thanks,
+br/
+| The #{company_name} team!!!!

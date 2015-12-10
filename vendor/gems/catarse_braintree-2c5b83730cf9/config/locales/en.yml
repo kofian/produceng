@@ -1,0 +1,35 @@
+en:
+  projects:
+    contributions:
+      refund:
+        success: 'Refund processed successfully'
+        error: 'An error occurred when processing your refund'
+    backers:
+      charge:
+        payment_form:
+          first_name: First Name
+          last_name: Last Name
+          company: Company
+          email: Email
+          phone: Phone Number
+          fax: Fax Number
+          website: Website
+          card_number: Card Number
+          cvv: CVV
+          expiration_date: Expiry Date
+          issued_date: Issued Date
+          cardholder_name: Cardholder Name
+          submit: Pay
+      review:
+        braintree: 'Braintree'
+        payment_save_card: I want to save my credit card to facilitate future support
+        bt:
+          international:
+            section_title: 'You will be directed to the payment processor site to complete payment.'
+            user_document_label: 'CPF / CNPJ (only for Brazilians)'
+            button: 'Redirect to Payment By Braintree'
+      checkout:
+        braintree_cancel: "Your payment was canceled. Please try again."
+        braintree_description: "Back project %{project_name} with %{value} (BRL)"
+        braintree_error: "Ooops. There was an error while sending your payment. Please try again."
+        success: "Your back was successfully made. Thanks a lot!"

@@ -1,0 +1,105 @@
+---
+en:
+  devise:
+    feedback_tab:
+      title: Feedback and Help
+      header_html: Welcome to <br/> new login ProduceRun
+      blog_button: Read more on the blog
+      form_feedback_link: Send feedback
+      contact_link: Contact
+    links:
+      forgot_password: I forgot my password
+    confirmations:
+      confirmed: Your account was successfully confirmed.
+      send_instructions: Within minutes, you will receive an email with instructions
+        to confirm your account.
+      send_paranoid_instructions: If your email exist in our database , you will receive
+        an email with instructions on how to confirm your account in a few minutes
+        .
+    failure:
+      password_token: The link to retrieve password has expired.
+      already_authenticated: ''
+      inactive: This email belongs to a disabled account
+      invalid: Email or password invalid
+      invalid_token: The authentication token is not valid.
+      locked: Your account is locked.
+      not_found_in_database: Email or password invalid
+      timeout: Your session has expired , please login again to continue.
+      unauthenticated: ''
+      unconfirmed: Before proceeding, verify your account .
+    mailer:
+      confirmation_instructions:
+        subject: Confirmation instruction
+      reset_password_instructions:
+        subject: Reset your password
+      unlock_instructions:
+        subject: Release instructions
+    omniauth_callbacks:
+      failure: Could not authorize a %{kind} account because " %{reason} " .
+      success: ''
+    passwords:
+      no_token: ''
+      send_instructions: We just sent you an email with instructions to reset a new
+        password
+      send_paranoid_instructions: If your email exist in our database , you will receive
+        an email with a link to the password recovery.
+      updated: ''
+      updated_not_active: Your password was changed successfully .
+      new:
+        site_title: I forgot my password
+        title: Confirm your email and request the password change
+        submit: Send instructions to change my password
+      edit:
+        site_title: Set a new password
+        label_new_password: new Password
+        title: Set a new password
+        subtitle: Set a new password to use your email and password when you want
+          to enter the ProduceRun .
+        submit: Set new password
+    registrations:
+      destroyed: Goodbye!
+      signed_up: ''
+      signed_up_but_inactive: You have successfully signed up , however we can not
+        authenticate you because your account has not been activated.
+      signed_up_but_locked: You have successfully signed up .
+      signed_up_but_unconfirmed: A message with a confirmation link has been sent
+        to your email.
+      update_needs_confirmation: Your account has been successfully updated , but
+        we need to check the new email address .
+      updated: Your account has been successfully updated.
+    sessions:
+      new:
+        site_title: login
+        submit: login
+        title: Login using your email address
+        login_title: Login
+        login_subtitle: If you already have an account
+        register_title: Register
+        register_subtitle: Use your e -mail
+        with_facebook: Log in using Facebook
+        with_facebook_subtitle: A very quick way to access
+        with_another_social: Twitter will be removed in a week
+        google_warning_html: 'If you wore a <strong>Google</strong> account:'
+        google_step_1: 1 - Click %{link}
+        google_step_2: 2 - Follow the next steps to create a new password.
+        with_another_social_subtitle: <a target="_blank" href="http://blog.catarse.me/mudanca-no-sistema-de-login/">Leia
+          this post</a> for more information
+      signed_in: ''
+      signed_out: ''
+    unlocks:
+      send_instructions: Within minutes, you will receive an email with instructions
+        unlock your account .
+      send_paranoid_instructions: If your account exists in our database , you will
+        soon receive an email with instructions to unlock it.
+      unlocked: Your account was successfully unlocked.
+  errors:
+    messages:
+      already_confirmed: already confirmed
+      confirmation_period_expired: You must be confirmed detro the period %{period}
+        , please order a new user.
+      expired: has expired, please request a new
+      not_found: not found
+      not_locked: was not blocked
+      not_saved:
+        one: ''
+        other: ''

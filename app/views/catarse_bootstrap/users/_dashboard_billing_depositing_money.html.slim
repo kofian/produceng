@@ -1,0 +1,93 @@
+.w-row
+  .w-col-12
+    .fontsize-small.u-marginbottom-20
+      'This is where we'll send the money you collect on ProduceRun.
+
+  .w-form.card.card-terciary.u-marginbottom-20
+    .w-row
+      .w-col-6.w-col.w-sub-col
+        .fontsize-base.fontweight-semibold.u-marginbottom-20
+          'Dwolla Account
+          .payment-logo-dwolla.payment-dwolla-logo-small
+        .w-form
+          = bform.label :receiving_dwolla_email_address, class: 'field-label fontweight-semibold force-text-dark' do
+            'Email Address
+          = bform.input_field :receiving_dwolla_email_address, class: 'w-input text-field positive required'
+
+      .w-col-6.w-col
+        .fontsize-base.fontweight-semibold.u-marginbottom-20
+          'PayPal Account
+          .payment-logo-paypal.payment-paypal-logo-small
+        .w-form
+          = bform.label :receiving_paypal_email_address, class: 'field-label fontweight-semibold force-text-dark' do
+            'Email Address
+          = bform.input_field :receiving_paypal_email_address, class: 'w-input text-field positive required'
+
+    .divider.u-marginbottom-20
+
+    .w-row
+      .w-col-12
+        .fontsize-base.fontweight-semibold.u-marginbottom-20 Bank Details
+    .w-row
+      .w-col.w-col-7.w-sub-col
+        .w-row
+          = bform.label :bank_routing_number, class: 'field-label fontweight-semibold force-text-dark' do
+            'Routing Number
+            = bform.input_field :bank_routing_number, class: 'w-input text-field positive required'
+        .w-row
+          = bform.label :checking_account_number, class: 'field-label fontweight-semibold force-text-dark' do
+            'Checking Account Number
+            = bform.input_field :checking_account_number, class: 'w-input text-field positive required'
+        .w-row
+          = bform.label :verify_checking_account_number, class: 'field-label fontweight-semibold force-text-dark' do
+            'Verify Checking Account Number
+            = bform.input_field :checking_account_number_confirmation, class: 'w-input text-field positive required'
+        .w-row
+          = bform.label :account_holder, class: 'field-label fontweight-semibold force-text-dark' do
+            'Account Holder
+            = bform.input_field :account_holder, class: 'w-input text-field positive required'
+        .w-row
+
+          .w-col-7.w-col.w-sub-col
+            = bform.label :dob, class: 'field-label fontweight-semibold force-text-dark' do
+              'Date of Birth
+            .w-row
+              = bform.date_select :bank_dob, {order: [:month, :day, :year], use_month_numbers: true, start_year: Date.today.year-100, end_year: Date.today.year, prompt: {day: 'DD', month: 'MM', year: 'YY'}}, class: 'w-select positive required', style: 'width:30%;display:inline;'
+          .w-col-5.w-col
+            .w-row
+              = bform.label :account_holder, class: 'field-label fontweight-semibold force-text-dark' do
+                'Last 4 Digits of SS No.
+              = bform.input_field :bank_ss_number, class: 'w-input text-field positive required', as: "string"
+        .w-row
+          = bform.label :street_address, class: 'field-label fontweight-semibold force-text-dark' do
+            'Street Address
+          = bform.input_field :street_address, class: 'w-input text-field positive required'
+        .w-row
+
+          .w-col-3.w-col.w-sub-col
+            = bform.label :state, class: 'field-label fontweight-semibold force-text-dark' do
+              'State
+            = bform.input_field :state, class: 'w-input text-field positive required'
+
+          .w-col-3.w-col.w-sub-col
+            = bform.label :zip_code, class: 'field-label fontweight-semibold force-text-dark' do
+              'Zip
+            = bform.input_field :zip_code, class: 'w-input text-field positive required'
+
+          .w-col-6.w-col
+            = bform.label :phone_number, class: 'field-label fontweight-semibold force-text-dark' do
+              'Phone Number
+            = bform.input_field :phone_number, class: 'w-input text-field positive required'
+
+      .w-col.w-col-5.u-text-center
+        .u-marginbottom-20 Where are my account numbers?
+        =image_tag 'sprites/payment/sample_check.gif'
+        p
+          span.fontsize-tiny Bank Routing Number
+          | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          span.fontsize-tiny Checking Account Number
+
+  .u-margintop-30
+    .w-row
+      .w-col.w-col-4.w-col-offset-4
+        = bform.submit value: 'Save', class: 'btn btn-large'

@@ -1,0 +1,43 @@
+- project = @notification.project
+- project_link = edit_project_url(project)
+|Hello #{project.user.name}, It's William Pattison from ProduceRun, how are you?
+br/
+br/
+| I saw that you created the page <strong>draft</strong> ProduceRun Campaign #{link_to(project.name, project_link)}  but he has not sent us. After sending , the campaign will be <strong>analyzed</strong> for a few days and you will be accompanied by me or another member of our service team .
+br/
+br/
+| In addition to reviewing the information about your campaign , we'll offer you a consultation with tips and advice on what to improve in your campaign. When you are ready the page may be <strong>approved</strong> and you choose the best day to post it on the site , starting the campaign .
+br/
+br/
+| Want to send the #{link_to 'your project draft', project_link} for our analysis?
+br/
+br/
+= image_tag 'https://s3.amazonaws.com/cdn.catarse/notifications_assets/btn-send-to-analysis.gif', width: 600
+br/
+br/
+strong Remember:
+br/
+| After sending all your campaign information can also be edited !
+br/
+| When the project is approved, it is you who choose the day to start your campaign. 
+br/
+br/
+| If you have any questions messing sends you here to me I 'll help you !
+br/
+br/
+|Thanks,
+br/
+strong
+  |William Pattison
+br/
+|Cheif Runner and President of ProduceRun
+br/
+br/
+strong 
+  | P.S - You want a time to reflect and learn more? 
+br/
+| The key tips to structure and conduct your campaign can be found in our various information channels. Check out a list of important links!
+br/
+| - To learn more and ask questions , go to #{link_to 'ProduceRun Support', 'http://support.producerun.com', target: '__blank'}
+br/
+| - For inspiration , look at other campaigns at #{link_to 'Explore', 'http://www.producerun.com/explore/', target: '__blank'} e #{ link_to 'Campaign Tips', 'http://blog.producerun.com', target: '__blank'} ProduceRun Blog.

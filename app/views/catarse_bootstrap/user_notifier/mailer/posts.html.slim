@@ -1,0 +1,12 @@
+- update = @notification.project_post
+- user = @notification.user
+br/
+strong= update.title
+== update.email_comment_html
+br
+br
+|See the campaign: #{link_to update.project.name, project_by_slug_url(permalink: update.project.permalink)}
+br/
+br/
+| #{link_to 'Unsubscribe', unsubscribe_notifications_user_url(user)} receiving news of this campaign.
+

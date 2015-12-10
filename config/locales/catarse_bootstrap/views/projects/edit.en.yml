@@ -1,0 +1,183 @@
+en:
+  projects:
+    reward_fields:
+      edit: edit price option
+      reward: price option
+      info_box: Describe the value of the price option and put a real delivery date forecast
+        for the supporters.
+      minimum_value: 'value:'
+      deliver_at: 'Estimated delivery:'
+      description: 'description:'
+      limit_reward: limit price option
+      available: Quantity Available
+      submit: save
+      index:
+        select_reward: Select this price option
+        display_remaining: "%{remaining} %{maximum} of available"
+        dont_want: I do not want price option
+        limited: limited
+        sold_out: exhausted
+        contributions_to_confirm:
+          one: 1 support in term of confirmation.
+          other: "%{count} support in term of confirmation."
+        edit_reward: edit price option
+        new_reward: Sign price option
+        reward_deliver_time: "<b>Estimated delivery: </b> %{estimate}"
+        reward_title: "%{minimum}"
+    dashboard_user_settings:
+      title: Registration and banking Payout Details
+      subtitle_html: You need to quickly fill out these details so we can quickly pay you out after a successfull campaign.
+      user_data_title: Registration data and address
+      user_data_subtitle_html: We need the data below for the issuance of tax notes
+        for successful projects.
+      account_title: bank details
+      account_subtitle_html: We need the data below to make a financial transfer for
+        successful projects.
+      submit: save
+    dashboard_home_templates:
+      status: 'Status:'
+      project_numbers:
+        financed: funded
+        backed: Raised
+        contributions: support
+        left: remaining
+      waiting_funds:
+        title: "%{name}, we are processing the final payments."
+        subtitle_html: This campaign was completed in %{expires} and is awaiting confirmation
+          slips and payments.
+        header: From here your campaign can hit the target or not.
+        success: 'A meta a:'
+        failed: 'Do not hit the target:'
+        good_luck: Good luck!
+      successful:
+        title: "%{name}, congratulations!"
+        subtitle_html: His campaign was successful and now is the time to start
+          talking with their supporters!
+        header1: 'And do not forget: Transparency is everything.'
+        transparent_html: Keep your buyers informed and happy to have a long time customer.
+        header2: 'Be sure to read:'
+      rejected:
+        title: "%{name} unfortunately was not this time."
+        subtitle_html: You sent your campaign for analysis of ProduceRun and we understand
+          that it is not according to the site profile.
+      online:
+        title: "%{name}, your campaign is published online!"
+        subtitle_html: Your campaign is published online and your campaign will end on the
+          day 23hs59min59s %{date}. Until that day and time you may receive support.
+        explanation_html: "<div class='fontsize-base u-marginbottom-40 card card-terciary'>
+          22266988645918961 With the project in the air, some information may no longer
+          be edited 6442732454340981 6221264374851357 You can no longer change : 36714498411431307
+          - your target capture ; 5917355537669011 - the deadline ; 4217621477946343
+          - the URL of the project; <br> - the user owner"
+      failed:
+        title: "%{name}, do not be discouraged!"
+        subtitle_html: Your campaign did not hit the target and we know that this
+          is not the best of feelings.
+        questions: We also sent an email to you with two short questions.
+      draft:
+        title: "%{name}, build your campaign!"
+        subtitle: The more carefully formatted your campaign is, the greater
+          the chances are your campaign will be successful.
+        study_title: Felt need to study more to build your campaign?
+      approved:
+        title: "%{name}, your campaign has been approved!"
+        subtitle_html: To publish this campaign online, fill
+          in the required data in tab %{link1}. It is important to know that we charge
+          the rate of 10% of the total amount collected only for successful ProduceRun Campaigns.
+      in_analysis:
+        title: "%{name}, you sent your campaign for analysis. You will receive our response
+          within 4 working days."
+        subtitle_html: Thank you very much!
+    edit:
+      leave_link_html: ''
+      start_tab: Begin
+      basics_tab: basic
+      project_tab: campaign
+      posts_tab: news
+      rewards_tab: price options
+      about_you_tab: about you
+      reports_tab: reports
+      account_tab: account
+      preview_tab: Preview
+      send: send
+      publish: publish
+      form:
+        info:
+          permalink: https://producerun.com/
+    dashboard_user_about:
+      submit: save
+      title: Tell us more about you!
+      subtitle: Supporters want to learn more about the farmers.
+      twitter_label: Twitter profile
+      twitter_hint: Paste the link to your profile
+      other_link_label: Presence on the Internet
+      other_link_hint: Include links to help supporters to understand why you are
+        the right person to do this project.
+      about_label: about you
+      about_hint: Use this space if you want to better describe you, your company,
+        or your institution.
+      facebook_link_label: Facebook profile
+      facebook_link_hint: Paste the link to your profile
+      uploaded_image_label: Profile image
+      uploaded_image_hint: This image will be used as the thumbnail of your profile
+        ( PNG, JPG ideal size 280 x 280 )
+      name_label: name
+      name_hint: Your public name, visible to all as a campaign of the author.
+    dashboard_reward:
+      title: Create and edit your pricing here
+      add_reward: Add price option
+      subtitle: Show what you get for each pricing option.
+      reward: Price option
+    dashboard_preview:
+      header_subtitle: It's time for feedback!
+      header_text: Share the link below with your friends and enjoy the moment to
+        make fine adjustments to help in your campaign.
+    dashboard_posts:
+      title: Write a Campaign Update
+      only_to_backers: I want this campaign update only visible to supporters.
+      publish: post new
+      discard: discard
+      warning: All published campaign updates are sent directly to their supporters by email.
+      old_posts: Campaign news
+    dashboard_project:
+      budgets_hint_html: Enter a list of the main items of the budget.
+      budget_hint_html: Where will you deliver?
+      budget_label: Farmer Notes
+      budgets_label: Details of the delivery.
+      start: Tell the story of your campaign!
+      start_subtitle: Think in the campaign narrative.
+      video_url: Video URL
+      video_url_hint: Link your video on Vimeo or Youtube.
+      about: Project Description
+      links_title: useful links
+      about_hint_html: Contact with passion and clarity about what will be done.
+      card: Card design
+      card_subtitle: You know that campaign card that appears on the home and
+        search?
+      image: Design Image
+      image_hint: This image will be used as the thumbnail of your campaign ( PNG,
+        JPG size 600 x 340 )
+      headline: Project call
+      headline_hint: Will be used in the campaign card, along with the above picture
+        (thumbnail).
+      submit: save
+    dashboard_basics:
+      project_start: Fill out the information below
+      project_start_subtitle: The data in this section may not be modified
+        after the project goes live.
+      online_date: Data entry no ar
+      user_id: User ID
+      name: Project Name
+      name_label: The more direct the better.
+      url: URL design
+      url_label: The address of your campaign. It should be easy to remember.
+      category: category
+      category_label: Explore other campaigns in the same category as yours.
+      online_days: Deadline for collection
+      online_days_label: You can choose between 1 and 60 days for your campaign.
+      value: Amount to be raised
+      value_secondary: Plan a consistent goal with your campaign proposes.
+      form:
+        submit: save
+        info:
+          permalink: https://producerun.com/

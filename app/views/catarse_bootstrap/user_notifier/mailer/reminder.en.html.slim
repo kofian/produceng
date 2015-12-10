@@ -1,0 +1,15 @@
+- project = @notification.project
+- user = @notification.user
+- company_name = CatarseSettings[:company_name]
+
+|Hi, <strong>#{user.display_name}</strong>!
+br
+br
+| This is a that the campaign's #{link_to project.name, project_by_slug_url(project.permalink, ref: 'notificacao-reminder')} campaign is due in 48 hours
+br
+| Now is the time to participate in this campaign ;)
+br
+br
+|Best regards,
+br
+| #{company_name}

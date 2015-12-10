@@ -1,0 +1,67 @@
+= render 'shared/header_big', overlayer: true
+
+.hero-container
+  .hero-image style="background-image: url(#{random_image})"
+  .hero-text.v-align.u-text-center
+    .fontweight-semibold.u-marginbottom-20.fontsize-jumbo.hero-big-text= t('Call dibs on high quality, farm-fresh food today')
+    .fontsize-large.lineheight-tight.u-marginbottom-30= t('Join your community and buy direct from local farmers.')
+    .w-col.w-col-6.w-col-offset-3.w-col-tiny-12.w-col-tiny-pull-3
+      = link_to t('.back_a_project'), explore_path(ref: 'home_banner_explore'), class: 'btn btn-large'
+  /video.hero-video autoplay="autoplay" loop="loop" preload="auto" poster="/assets/producerun/hero-01.jpg"
+    source src="https://s3.amazonaws.com/producerun/PR+PROMO.mp4" type="video/mp4"
+
+.project-start-wrapper
+  .page-header
+    .w-container.no-responsive
+      /.fontsize-largest.u-text-center.u-marginbottom-70.u-margintop-40 = t('pages.start.title')
+      /- statistics = Statistics.first
+      .w-row.u-text-center.u-marginbottom-80
+        .w-col.w-col-4
+          .fontsize-jumbo.text-success.lineheight-loose 348
+          /! number_to_human(statistics.total_contributors)
+          p.start-stats.fontsize-base = t('pages.start.header.people')
+        .w-col.w-col-4
+          .fontsize-jumbo.text-success.lineheight-loose 100
+          /! number_to_human(statistics.total_projects_success)
+          p.start-stats.fontsize-base = t('pages.start.header.success')
+        .w-col.w-col-4
+          .fontsize-jumbo.text-success.lineheight-loose $11,231
+          /! = number_to_human(statistics.total_contributed)
+          p.start-stats.fontsize-base = t('pages.start.header.money')
+
+      .w-row.u-margintop-20.u-marginbottom-60
+        .w-col.w-col-3.w-col-push-3
+          #learn_link= link_to t('pages.start.learn-more'), '#learn', class: 'btn btn-medium'
+        .w-col.w-col-3.w-col-push-3
+          = link_to t('pages.start.submit'), new_project_path, class: 'btn btn-medium btn-secondary'
+
+
+.section.u-marginbottom-0.u-paddingbottom-0
+  .w-container
+    .w-row.u-marginbottom-0
+      .fontsize-larger.u-text-center.u-marginbottom-70.u-margintop-40 = t('.search')
+
+
+  #map style="height: 500px;"
+
+
+.section.section-gray-one style="margin-top: 0"
+  .w-container
+    .u-text-center
+      = link_to CatarseSettings[:blog_url], target: :blank do
+        = image_tag "icon-blog.png", class: "u-marginbottom-10"
+      .fontsize-large.u-marginbottom-60.text-success
+        = t('.blog')
+    .w-row
+      - (Blog.fetch_last_posts rescue [])[0..2].each do |post|
+        .w-col.w-col-4.col-blog-post
+          = link_to post.url, target: '__blank', class: 'link-hidden fontweight-semibold fontsize-base u-marginbottom-10' do
+            /span.fontweight-semibold.fontsize-base.u-marginbottom-10
+            = truncate(post.title, length: 80)
+          .fontsize-smaller.fontcolor-secondary.u-margintop-10
+            /= link_to post.url, target: '__blank', class: 'fontsize-smaller fontcolor-secondary ' do
+            /span.fontsize-smaller.fontcolor-secondary
+            =raw post.summary
+
+
+= render 'shared/footer_big'

@@ -1,0 +1,29 @@
+- if resource.contributions.empty?
+  .w-container
+    .w-row.u-margintop-30.u-text-center
+      .w-col.w-col-3
+      .w-col.w-col-6
+        .fontsize-large.u-marginbottom-30 #{t('users.dashboard.contributions.no_contribuitions')}
+        .w-row
+          .w-col.w-col-3
+          .w-col.w-col-6
+            = link_to "#{t('users.dashboard.contributions.support_now')}", explore_path(), class: 'btn btn-large'
+          .w-col.w-col-3
+      .w-col.w-col-3
+
+- else
+  - if resource.contributions.for_online_projects.present?
+    .section-one-column.u-marginbottom-30
+      .fontsize-large.fontweight-semibold.u-marginbottom-30.u-text-center #{t('users.dashboard.contributions.active_projects')}
+      = render 'contribution_row', collection: resource.contributions.for_online_projects.ordered
+
+  - if resource.contributions.for_successful_projects.present?
+    .section-one-column.u-marginbottom-30
+      .fontsize-large.fontweight-semibold.u-marginbottom-30.u-text-center #{t('users.dashboard.contributions.funded_projects')}
+      = render 'contribution_row', collection: resource.contributions.for_successful_projects.ordered
+
+
+  - if resource.contributions.for_failed_projects.present?
+    .section-one-column.u-margintop-30
+      .fontsize-large.fontweight-semibold.u-marginbottom-30.u-text-center #{t('users.dashboard.contributions.not_funded_projects')}
+      = render 'contribution_row', collection: resource.contributions.for_failed_projects.ordered

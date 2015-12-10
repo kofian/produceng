@@ -1,0 +1,21 @@
+- Contribution = @ notification.contribution
+- Company_name = CatarseSettings [: company_name]
+- Contact_email = CatarseSettings [: email_contact]
+
+| Hello, <strong> # {contribution.user.display_name} </ strong>
+br
+br
+| We have not received the support of the payment confirmation for this ProduceRun Campaign # {link_to contribution.project.name, project_by_slug_url (permalink: contribution.project.permalink, ref: 'notificacao_cancelado')}.
+br
+br
+| To Make This Run Happen, this ProduceRun Campaign needs more buyers from the community before # {l (contribution.project.expires_at)}
+| To hold a # {link_to 'new contribution', project_by_slug_url (permalink: contribution.project.permalink, ref: 'notificacao_cancelado')}.
+| Join more <strong> # {contribution.project.total_contributions} </ strong> people who want to take the project # {link_to contribution.project.name, project_by_slug_url (permalink: contribution.project.permalink, ref: 'notificacao_cancelado ')} of the paper.
+br
+br
+| If you got any questions, please contact us responding to this message or by e-mail # {mail_to contact_email}
+br
+br
+| Thanks again for your support,
+br
+| # {} Company_name

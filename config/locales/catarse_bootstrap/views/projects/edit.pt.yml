@@ -1,0 +1,169 @@
+pt:
+  projects:
+    reward_fields:
+      edit: "Edit Pricing"
+      reward: Pricing
+      info_box: "Describe the value of the pricing and put the actual delivery date forecast for the supporters. You can also limit the pricing and- When the limit is Reached it appears the EXHAUSTED. If you want to change the order que the pricing Appear in your campaign, just do it by dragging up or down Them."
+      minimum_value: "Value:"
+      deliver_at: "Estimated delivery:"
+      description: "description:"
+      limit_reward: "limit reward"
+      available: "Quantity available"
+      submit: "Save"
+      index:
+        select_reward: "Select this pricing"
+        display_remaining: "%{remaining} de %{maximum} available"
+        dont_want: "I do not want reward"
+        limited: Limited
+        sold_out: Sold Out
+        contributions_to_confirm:
+          one: 1 support in term confirmation.
+          other: "%{count} term support for confirmation."
+        edit_reward: Edit pricing
+        new_reward: New pricing
+        reward_deliver_time: "<b>Delivery estimate:</b> %{estimate}"
+        reward_title: "%{minimum}" 
+    dashboard_user_settings:
+       title: "Registration and banking details"
+       subtitle_html: "Please complete this form so your campaign can be published. After Completing the filling, Then click Save. Review. If everything is ok, just press the Publish button and start your campaign!"
+       user_data_title: "Registration date and address"
+       user_data_subtitle_html: "We need your tax details for successful payout producerun campaigns. <b> ATTENTION: Tax details listed in the registration information and bank details must be the same.</b>"
+       account_title: "Bank Details"
+       account_subtitle_html: "We need the below to make a financial transfer date for successful projects. <b>CAUTION: The tax details listed in the registration information and bank details must be the same.</b>"
+       submit: "Save"
+    dashboard_home_templates:
+      status: "Status:"
+      project_numbers:
+        financed: Funded
+        backed: Raised
+        contributions: Backed
+        left: remaining
+      waiting_funds:
+        title: "%{name}, we are processing the last payments."
+        subtitle_html: "The campaign was FINALIZED %{expires} and is awaiting confirmation slips and payments. Due to the due date of payments, campaigns had last minute payments and can take maximum 4 days to clear, starting from the campaign completion date. %{link}."
+        header: "From here your campaign can hit your goal or not. Watch what happens in each case:"
+        success: "Your ProduceRun Campaign was Succesfull, congratulations:"
+        failed: "Sorry, you didn't reach your campaign target:"
+        good_luck: "Good luck "
+      successful:
+        title: "%{name}, Congratulations"
+        subtitle_html: "Your campaign was successful and now it is time to commucaite with your campaign backers! It is very important that you deliver your high quality product as promised on time. Deliver! Be sure to look at the post-campaign section %{link1} and learn about what you need to do. %{link2}. "
+        header1: "And do not forget: Transparency is everything."
+        transparent_html: "Keep informed your customer so they are happy with your service and continue supporting you. Even if you have a setback. To Contact Customers, goto the the News tab, you can write there and email all your customers in one message. Change of Drop off location? Tab  \"reports \" you can download the customers information so you can easier contact and deliver your campaign's products."
+        header2: "Be sure to read:"
+      rejected:
+        title: "%{name}, unfortunately you weren't successful this time."
+        subtitle_html: "You sent your campaign for review to ProduceRun and we had a few corrections that need to be corrected first. Having a declined campaign does not prevent you to send new campaigns for assessment or rephrase your current campaign. Talk to us at info@producerun if you have further questions! We recommend that you take a good look at the %{link1}  e no %{link2}."
+      online:
+        title: "%{name}, your campaign is published online!"
+        subtitle_html: "Your Campaign is published and will end on the day 23hs59min59s% {date}. Until that day you need to share your campaign link with your network to ensure you sell all your products. Remember, it's all-or-nothing and you just take the proceeds to hit the target that was set. Visit our% {link2} to additional questions!"
+        explanation_html: "
+<div class='fontsize-base u-marginbottom-40 card card-terciary'>
+                      <p class='fontweight-bold'>
+                        With the campaign published, some information may no longer be edited
+                      </p>
+                      <p>
+                        You can not change:<br> - its funding goal;<br> - The campaign deadline;<br> - the campaign URL ;<br> - the campaign owner.
+                      </p>
+                      <p class='fontweight-bold'>
+                        Need more information about campaign process? See the box next to.
+                      </p>
+                      <p>
+                        The Search&nbsp;%{link1} This is a good source of information; % {link2} which can be inspiring. There you will find successful campaign stories and tips.
+                      </p>
+                    </div>
+"
+      failed:
+        title: "%{name}, do not be discouraged!"
+        subtitle_html: "Your campaign didn't hit the target and we know that this is not the best of feelings. But do not be discouraged. Think of the process as a learning and be sure to try a second attempt. Do not worry, all your customers will receive all their money back. %{link}."
+        questions: "We also send an email to you with two little questions. If you have time and head, it would be great if you could take a look. Your feedback helps us improve ProduceRun for you."
+      draft:
+        title: "%{name}, Build your campaign!"
+        subtitle: "The more careful and well formatted the campaign is, the greater the chances of it being successful in your selling out your campaign. Before sending your campaign to our analysis, fill in all the tabs above fondly. You can save your changes and return to the campaign draft over again. When everything is ready, click the SEND button and we will contact you to assess your campaign."
+        study_title: "He felt need to study more to build your campaign? Check out the links in the box next."
+      approved:
+        title: "%{name}, your campaign has been approved!"
+        subtitle_html: "To publish your campaign is only requires you to fill in the required data in tab %{link1}. It is important to know that we charge a fee of 10% of the total amount collected only for successful campaign. Understand %{link2}. "
+      in_analysis:
+        title: "%{name}, you send your campaign for analysis and receive our response within 4 working days"
+        subtitle_html: "Thanks! Our team will review the entire contents of your campaign and within the next 4 business days you will receive an email informing if it was approved, refused or whether it will continue in analysis for some time for you to realize suggested adjustments. Take advantage of this period to collect feedback with close people!"
+    edit:
+      leave_link_html: "&nbsp; Exit Control Panel"
+      start_tab: First
+      basics_tab: Basics
+      project_tab: Campaign
+      posts_tab: News
+      rewards_tab: Pricing
+      about_you_tab: About You
+      reports_tab: Reports
+      account_tab: Account
+      preview_tab: Preview
+      send: Send
+      publish: Publish
+    dashboard_user_about:
+      submit: "Save"
+      title: "Talk more about you!"
+      subtitle: "Supporters want to learn more about the farmer. Links that help tell your story are always welcome. "
+      twitter_label: "Twitter"
+      twitter_hint: "Paste the link to your profile"
+      other_link_label: "Your Website, Yelp and Other Helpful Websites "
+      other_link_hint: "Include links to help supporters to understand why they should buy from you. "
+      about_label: "About You"
+      about_hint: "Use this space to better describe you, your company or your institution. You want to give credit to partners? Using a corporate video? This space is yours and use it as you wish. All of this information will appear in the About tab on your Public Profile."
+      facebook_link_label: "Facebook Profile"
+      facebook_link_hint: "Paste the link to your Facebook Page"
+      uploaded_image_label: "Profile Image"
+      uploaded_image_hint: "This image will be used as the thumbnail of your profile (PNG, JPG ideal size 280 x 280)"
+      name_label: "Name"
+      name_hint: "Your public name, visible to all as the organiser of the campaign."
+    dashboard_reward:
+      title: "Create and edit your pricing here"
+      add_reward: "Add pricing"
+      subtitle: "Review others pricing to guage the market price!"
+      reward: "Pricing"
+    dashboard_preview:
+      header_subtitle: "It is time for feedback!"
+      header_text: "Share the link below with your friends and enjoy the time to make fine adjustments to help in your campaign."
+    dashboard_posts:
+      title: "Write a post"
+      only_to_backers: "I want to write a post that is visible only for my supporters."
+      publish: 'Publish'
+      discard: 'Discard'
+      warning: "All published news is sent directly to their supporters via email. Review and the post before publishing."
+      old_posts: "old news"
+    dashboard_project:
+      budgets_hint_html: "In Farmer Notes, provide clear instructions on pick up location and time. If you do this now, it saves a lot of confustion come pick up time. There is no rule & nbsp; as the number of items in the list, but usually 5 is usually a good number!"
+      budget_hint_html: "The clearer the instructions, the better. Show steps to find you pick up day and times and processes are involved."
+      budget_label: "Farmer Notes"
+      budgets_label: "Detailed Notes"
+      start: "Tell the story of your campaign!"
+      start_subtitle: "Think about your campaign narrative. It will delight people and bring supporters who want to buy from you. A good video and description make a huge difference!"
+      video_url: "Video URL"
+      video_url_hint: "Link your video on Vimeo or Youtube."
+      about: "Describe your campaign"
+      links_title: "Links title"
+      about_hint_html: 'Speak with passion and clarity about what you do. What goes into your product, who is behind the campaign, as and when it will be delivered. Authetic story attracts more supporters. Remember, your campaign will be bought by people passionate about what you do.'
+      card: 'Campaign Embed Widget'
+      card_subtitle: 'You know that campaign widget will that appear on the home and when people are searching catogories? So a beautiful image will make a great first impression!'
+      image: 'Campaign image'
+      image_hint: 'This image will be used as the thumbnail of your campaign (PNG, JPG size 600 x 340)'
+      headline: 'Campaign call to action'
+      headline_hint: 'It will be used in the Campaign Widget, along with the above picture (thumbnail). Max 100 characters.'
+      submit: 'Save'
+    dashboard_basics:
+      project_start: 'Fill out the information below'
+      project_start_subtitle: 'The data reported in this section cant be modified once the campaign published. Fill out carefully and review before launching the campaign. '
+      online_date: 'When published online'
+      user_id: 'User ID'
+      name: 'Campaign Name'
+      name_label: 'The more direct the better. Do not exceed 50 characters'
+      url: 'Campaign URL'
+      url_label: 'It is the address of your project should be easy to remember. Avoid underline, hyphen and symbols'
+      category: 'Category'
+      category_label: 'Explore and inspire other projects in the same category as yours.'
+      online_days: 'Deadline for collection'
+      online_days_label: 'You can choose between 1 and 60 days for his campaign. Check out the ProduceRun Support for tips on deadlines. '
+      value: 'Amount to be collected'
+      value_secondary: 'Plan a consistent goal with what your campaign is proposing. Review your budget and do not forget to include the rate of 10% charged by ProduceRun if your campaign is successful'
+      form:
+        submit: 'Save'

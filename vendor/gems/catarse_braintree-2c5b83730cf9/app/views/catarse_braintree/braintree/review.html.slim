@@ -1,0 +1,32 @@
+= javascript_include_tag 'catarse_braintree'
+#catarse_braintree_form
+  #catarse_braintree_form_error
+  = simple_form_for [@project, @contribution],url: main_app.braintree_payment_project_contribution_path(@project,@contribution), method: 'POST',remote: true,html:{ id: 'contribution_payment_form' },data: { payemnt_info_path: main_app.braintree_payment_project_contribution_path(@project,@contribution) } do |form|
+    .clearfix
+    .w-form
+      .w-row
+        = form.input :card_name, as: :string, wrapper_html: {class: 'w-col w-col-12'},label: 'Name on the Card', input_html: {required: true, class: 'w-input text-field'}, validation_text: true, required: true
+      .w-row
+        = form.input :card_number, as: :string, wrapper_html: {class: 'w-col w-col-8 w-sub-col'}, input_html: {required: true, class: 'w-input text-field'}, validation_text: true, required: true
+        = form.input :card_cvv, as: :password, wrapper_html: {class: 'w-col w-col-4'}, input_html: {required: true, class: 'w-input text-field',maxLength: 4}, validation_text: true, required: true
+
+      .w-row
+        .w-col.w-col-8.w-sub-col
+          = form.label :card_expiration_date, class: 'field-label fontweight-semibold force-text-dark' do
+            'Expiration Date
+          .w-row
+            .w-col-6.w-col.w-sub-col
+              = select_month nil, {use_two_digit_numbers: true}, {name: 'contribution[card_expiration_month]', class: 'w-select text-field required',id: 'contribution_card_expiration_month'}
+            .w-col-6.w-col
+              = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: 'contribution[card_expiration_year]', class: 'w-select text-field required',id: 'contribution_card_expiration_year'}
+        = form.input :card_zip_code, as: :string, wrapper_html: {class: 'w-col w-col-4'}, input_html: {required: true, class: 'w-input text-field'}, validation_text: true, required: true
+      .w-row
+        .w-col.w-col-12
+          = form.input_field :anonymous, boolean_style: :inline, class: 'checkbox-fix'
+          label.w-form-label.fontsize-smallest[for="card_save_info"] = t('projects.contributions.credit_card_payment.payment_save_card')
+      .w-row
+        .w-col-w-col-12
+          .clearfix
+      .w-row
+        .w-col.w-col-4
+          input#submit.btn.btn-primary.btn-large type="submit" value="Confirm"

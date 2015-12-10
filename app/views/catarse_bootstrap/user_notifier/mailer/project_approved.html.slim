@@ -1,0 +1,45 @@
+- project = @notification.project
+
+- project_link = edit_project_url(project)
+- company_name = CatarseSettings[:company_name]
+
+| Hello, #{project.user.name}, <strong>#{link_to 'your project was approved', project_link}</strong> and can be published online when you want.
+br/
+br/
+strong 
+  | To start the campaign you need to do only 3 things!
+br/
+br/
+strong 
+  | 1. Fill your bank details on the tab #{link_to 'ACCOUNT', edit_project_url(project, anchor: 'user_settings')}.
+br/
+| We need your bank details to make the transfer of the money raised if you reach its funding goal.
+br/
+br/
+strong
+  | 2. Choose the best date to start.
+br/
+| Is it really you who chooses the release date.
+br/
+br/
+strong
+  | 3. And press the publish button design.
+br/
+= image_tag 'https://s3.amazonaws.com/cdn.catarse/notifications_assets/btn-publish.gif', width: '600'
+br/
+br/
+strong
+  | Attention
+br/
+| - After the publication is All-or-Nothing and some aspects of the project can not be changed!
+br/
+| - Only charge our rate of 10% if you have success in your fundraising! Understand how we do #{link_to 'transfer of money', 'http://support.producerun.com'}.
+br/
+br/
+| Remembering that you can ask questions with us directly responding to this message or by e-mail #{mail_to CatarseSettings[:email_projects]}
+br/
+br/
+| Thanks,
+br/
+| The team #{company_name} wish you a successful campaign!
+

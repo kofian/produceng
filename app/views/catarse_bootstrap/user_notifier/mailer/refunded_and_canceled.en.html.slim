@@ -1,0 +1,18 @@
+-contribution = @notification.contribution
+- company_name = CatarseSettings[:company_name]
+- contact_email = CatarseSettings[:email_contact]
+|Hi, <strong>#{contribution.user.display_name}</strong>!
+br
+br
+| Your refund was successfully done and the credit to the campaign #{link_to contribution.project.name, project_by_slug_url(permalink: contribution.project.permalink)} was canceled.
+br
+br
+| The identification key for your payment is: #{contribution.payment_id}
+br
+br
+| If you have any question, please reply this message or e-mail us at #{mail_to contact_email}
+br
+br
+|Best regards,
+br
+| #{company_name}
