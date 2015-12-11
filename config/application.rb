@@ -57,8 +57,8 @@ module Catarse
     if Rails.env.production?
       config.middleware.use ExceptionNotification::Rack,
         :email => {
-          :sender_address => %{"Info" <info+system@producerun.com>},
-          :exception_recipients => "info+system@producerun.com",
+          :sender_address => %{"Info" <info+system@produceng.com.ng>},
+          :exception_recipients => "info+system@produceng.com.ng",
           :delivery_method => :smtp,
         }
     end

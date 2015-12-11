@@ -26,7 +26,7 @@ puts 'Seeding the database...'
  end
 
 {
-  company_name: 'ProduceRun',
+  company_name: 'ProduceNG',
   company_logo: 'http://www.producerun.com/wp-content/uploads/2014/11/rsz_producerun-green.png',
   host: 'producerun.com',
   base_url: "http://www.producerun.com",
@@ -53,7 +53,7 @@ puts 'Seeding the database...'
   instagram_url: 'http://instagram.com/producerun',
   blog_url: "http://blog.producerun.com",
   farmers_blog_url: "http://farmers.producerun.com",
-  github_url: 'http://github.com/producerun',
+  github_url: 'http://github.com/kofian',
   managemymarket_url: "https://managemymarket.com/default.aspx",
   contato_url: 'http://support.producerun.com/',
   mixpanel_token: 'e0e80f9f416708ba621aaf3d6aff3b85',
@@ -101,7 +101,7 @@ end
 
 Rails.cache.clear
 
-user = User.where( name: 'Asd Name', email: 'asd@asd.asd').first_or_initialize do |user|
+user = User.where( :name => 'Asd Name', :email => 'asd@asd.asd').first_or_initialize do |user|
   user.password = 'asdasd'
   user.admin = true
   puts "User #{user.email} created"
