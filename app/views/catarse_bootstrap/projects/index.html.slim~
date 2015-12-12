@@ -3,7 +3,7 @@
 .hero-container
   .hero-image style="background-image: url(#{random_image})"
   .hero-text.v-align.u-text-center
-    .fontweight-semibold.u-marginbottom-20.fontsize-jumbo.hero-big-text= t('Shine on high quality, farm-fresh food today')
+    .fontweight-semibold.u-marginbottom-20.fontsize-jumbo.hero-big-text= t('Shine eyes on high quality, farm-fresh food today')
     .fontsize-large.lineheight-tight.u-marginbottom-30= t('Join your community and buy direct from local farmers.')
     .w-col.w-col-6.w-col-offset-3.w-col-tiny-12.w-col-tiny-pull-3
       = link_to t('.back_a_project'), explore_path(ref: 'home_banner_explore'), class: 'btn btn-large'
