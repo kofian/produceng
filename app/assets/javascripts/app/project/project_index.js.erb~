@@ -15,7 +15,7 @@ App.addChild('ProjectIndex', {
 
     var map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 9.0815945, lng: 7.4134955},
-      zoom: 15,
+      zoom: 10,
       scrollwheel: false
     });
 
